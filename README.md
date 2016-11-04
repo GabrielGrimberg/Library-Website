@@ -5,8 +5,11 @@ The aim of this assignment is to develop a book reservation web site using PHP a
 ###The Application Will Enable The Following
 
 •	Library functionality - the users should be allowed to: 
+
 •	Search for a book.
+
 •	Reserve a book. 
+
 •	View all the books that they have reserved.
 
 ###In Depth Requirements
@@ -16,9 +19,9 @@ The aim of this assignment is to develop a book reservation web site using PHP a
 •	Registration - This allows a user to enter their details on the system. The registration process should validate that all details are entered. Mobile phone numbers should be numeric and 10 characters in length. Password should be six characters and have a password confirmation function. The system should ensure that each user can be identified using a unique username. 
 
 •	Search for a book: The system should allow the user to search in a number of ways: 
-
-	o	by book title and/or author (including partial search on both) 
-	o	by book category description in a dropdown menu (book category should retrieved from database)
+	
+	-	By book title and/or author (including partial search on both).
+	-	By book category description in a dropdown menu (book category should retrieved from database).
 
 •	The results of the search should display as a list from which the user can then reserve a book if available. If the book is already reserved, the user should not be allowed to reserve the book.
 
