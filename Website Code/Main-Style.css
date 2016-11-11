@@ -1,0 +1,263 @@
+/* Main CSS Path for Every Page. */
+
+html, body 
+{
+	margin: 0;
+	padding: 0;
+}
+
+
+/* Perfecting the size of the 3 buttons down */
+.container 
+{
+	max-width: 940px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+
+/* Color of when mouse is on navigator */
+#menu a:hover 
+{
+	color: rgb(160, 200, 255);
+}
+
+/* Background image for menu, making sure no repeats */
+.backgroundfix 
+{
+	background: url(http://weebitphotography.com/wp-content/uploads/2016/10/nice-luxury-home-libraries-gallery-ideas.jpg) no-repeat center center;
+	background-size: cover;
+	height: 500px;
+}
+
+/* Navigator Background */
+.header 
+{
+	background-color: #333;
+}
+
+/* Navigator Position */
+.nav 
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 20px 0;
+	text-align: center;
+}
+
+/* Navigator Words */
+.nav li 
+{
+	color: #ffffff;
+	display: inline;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 1000;
+	font-size: 12px;
+	margin-right: 50px;
+	text-transform: uppercase;
+
+}
+
+/* Removing the link look */
+.nav li a
+{
+	text-decoration: none;
+	color: white;
+}
+
+/* Position of Top Page */
+.main 
+{
+	position: relative;
+	top: 180px;
+	text-align: center;
+}
+
+/* Title of Page */
+.main h1 
+{
+	color: #ffffff;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
+	font-size: 70px;
+	margin-top: 0;
+	margin-bottom: 80px;
+	text-transform: uppercase;
+}
+
+/* Description after title */
+.btn-primary 
+{
+	background-color: rgba(100, 100, 100, 0.5);
+	color: #fff;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
+	font-size: 18px;
+	letter-spacing: 1.3px;
+	padding: 16px 40px;
+	text-decoration: none;
+	border-radius: 25px;
+}
+
+/* The three bottons */
+.btn-default 
+{
+	border: 1px solid #333;
+	color: #333;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
+	font-size: 10px;
+	letter-spacing: 1.3px;
+	padding: 10px 20px;
+	text-decoration: none;
+	text-transform: uppercase;  
+	display: inline-block;
+	margin-bottom: 20px;
+	border-radius: 5px;      
+}
+
+/* Positioning for lower page */
+.supporting 
+{
+	padding-top: 80px;
+	padding-bottom: 100px;
+}
+
+/* Column position */
+.supporting .col 
+{
+	float: left;
+	width: 33%;
+	font-family: 'Raleway', sans-serif;
+	text-align: center;
+}
+
+/* Resizing the image */
+.supporting img 
+{
+	height: 32px;
+}
+
+/* Text title for lower page */
+.supporting h2 
+{
+	font-weight: 600;
+	font-size: 23px;
+	text-transform: uppercase;
+}
+
+/* Paragraph after text title */
+.supporting p 
+{
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+	padding: 0 50px;
+	margin-bottom: 40px;
+}
+
+/* Lining */
+.clearfix 
+{
+	clear: both;
+}
+
+/* Footer background */
+/* Making the footer */
+.footer 
+{
+	background-color: #333;
+	color: #ffffff;
+	padding: 15px 0;
+}
+
+/* Description in footer */
+.footer p 
+{
+	font-family: 'Raleway', sans-serif;
+	font-size: 10px;
+	text-align: left;
+} /* End of Main CSS Path */
+
+
+/* Start of Loyalty Club Section */
+/* For the Sign Up Form */
+
+.backgroundfix2
+{
+	background: url(http://www.psdgraphics.com/file/green-pattern.jpg) no-repeat center center;
+	background-size: cover;
+	height: 500px;
+}
+
+#container 
+{
+	width: 840px;
+	margin: 25px auto;
+}
+
+.header 
+{
+	background-color: #333;
+}
+
+.signupnow 
+{
+	float: left;
+	background-color: white;
+	width: 480px;
+	height: 347px;
+	border-radius: 0 5px 5px 0;
+	padding-top: 20px;
+	padding-right: 20px;
+}
+
+.signup 
+{
+	float: left;
+	width: 300px;
+	padding: 30px 20px;
+	background-color: white;
+	text-align: center;
+	border-radius: 5px 0 0 5px;
+}
+
+[type=text] 
+{
+	display: block;
+	margin: 0 auto;
+	width: 80%;
+	border: 0;
+	border-bottom: 1px solid rgba(0, 0, 0, .2);
+	height: 45px;
+	line-height: 45px;
+	margin-bottom: 10px;
+	font-size: 1em;
+	color: rgba(0, 0, 0, .4);
+}
+
+[type=submit] 
+{
+	margin-top: 25px;
+	width: 80%;
+	border: 0;
+	background-color: #53CACE;
+	border-radius: 5px;
+	height: 50px;
+	color: white;
+	font-weight: 400;
+	font-size: 1em;
+}
+
+[type='text']:focus 
+{
+	outline: none;
+	border-color: #53CACE;
+}
+
+h1 
+{
+	color: rgba(0, 0, 0, .7);
+	font-weight: 900;
+	font-size: 2.5em;
+}
