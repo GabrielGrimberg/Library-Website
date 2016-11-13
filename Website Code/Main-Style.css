@@ -81,6 +81,7 @@ html, body
 	font-weight: 600;
 	font-size: 70px;
 	margin-top: 0;
+	text-align: center;
 	margin-bottom: 80px;
 	text-transform: uppercase;
 }
@@ -255,4 +256,77 @@ button
 	/* This extra margin represent roughly the same space as the space
 	   between the labels and their text fields */
 	margin-left: .5em;
+}
+
+/* PHP for Register */
+.clearfix:before, .clearfix:after 
+{ 
+	content: ""; 
+	display: table; 
+}
+
+.clearfix:after 
+{ 
+	clear: both; 
+}
+
+a 
+{
+	color: #0067ab; 
+	text-decoration: none;
+}
+a:hover 
+{
+	text-decoration: underline;
+}
+
+.Form
+{
+	width: 300px; 
+	margin: auto;
+}
+
+input[type='text'], input[type='password'] 
+{
+	width: 200px; 
+	border-radius: 
+	2px;border: 
+	1px solid #CCC; 
+	padding: 10px; 
+	color: #333; 
+	font-size: 14px; 
+	margin-top: 15px;
+}
+
+
+input[type='Submit']
+{
+	padding: 10px 15px 8px; 
+	text-align: center;
+	color: #fff; 
+	background-color: #000000; /* Black */ 
+	font-size: 16px; 
+	border-radius: 10px; 
+	margin-top: 20px; 
+	cursor:pointer;
+}
+
+input[type='Submit']:hover 
+{
+	background-color: #A9A9A9; /* Light Grey */
+}
+
+/* PHP for Login */
+.backgroundfix4
+{
+	background: url(http://www.tysonkilmer.com/wp-content/uploads/2015/03/journey-login-background.png) no-repeat center center;
+	background-size: cover;
+	height: 500px;
+}
+
+.loginheader
+{
+	font-family: 'Raleway', sans-serif;
+	text-align: center;
+
 }

@@ -1,0 +1,139 @@
+<!--Web Development 2 Assingment-->
+<!--Author: Gabriel Grimberg.-->
+<!--Website: Library Website-->
+<!--Page: Contact-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	    <!--Linking to CSS-->
+		<link type="text/css" rel="stylesheet" href="Main-Style.css"/>
+		<title>Register</title>
+	</head>
+	
+<body>
+
+	<div div class="header">
+		<div class="container">
+	
+	<!--Creating the Navigator-->
+			<div id="menu">
+			<ul class="nav">
+				<li><a href="Main-Page.html">Welcome</a></li>
+				<li><a href="search.html">Search</a></li>
+				<li><a href="Register.html">Register</a></li>
+				<li><a href="account.html">My Account</a></li>
+			</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div class="backgroundfix3">
+		<div class="container">  
+			<div class="main">
+				<h1>Registration</h1>
+				<p class="btn-primary">Register below to create your own account to use to search for books, rent them or view them. The form is below.</p>
+			</div>
+		</div>
+	</div>
+				
+	<!-- PHP to go here -->
+	<?php
+		
+		//Include to connect to database.
+		require('DatabaseConnect.php');
+		
+		//Include this PHP file to secure all pages.
+		include("LoggedSeason.php"); 
+		
+	    // If form submitted, insert values into the database.
+	    if (isset($_REQUEST['Username']))
+		{
+			//Removes backslashes.
+			$Username = stripslashes($_REQUEST['Username']);
+			//Escapes special characters in a string.
+			$Username = mysqli_real_escape_string($Connection,$Username);
+						
+			//Removes backslashes.
+			$Password = stripslashes($_REQUEST['Password']);
+			//Escapes special characters in a string.
+			$Password = mysqli_real_escape_string($Connection,$Password);
+			
+			//Removes backslashes.
+			$FirstName = stripslashes($_REQUEST['FirstName']);
+			//Escapes special characters in a string.
+			$FirstName = mysqli_real_escape_string($Connection,$FirstName);
+			
+			//Removes backslashes.
+			$Surname = stripslashes($_REQUEST['Surname']);
+			//Escapes special characters in a string.
+			$Surname = mysqli_real_escape_string($Connection,$Surname);
+			
+			//Removes backslashes.
+			$AddressLine1 = stripslashes($_REQUEST['AddressLine1']);
+			//Escapes special characters in a string.
+			$AddressLine1 = mysqli_real_escape_string($Connection,$AddressLine1);
+			
+			//Removes backslashes.
+			$AddressLine2 = stripslashes($_REQUEST['AddressLine2']);
+			//Escapes special characters in a string.
+			$AddressLine2 = mysqli_real_escape_string($Connection,$AddressLine2);
+			
+			//Removes backslashes.
+			$City = stripslashes($_REQUEST['City']);
+			//Escapes special characters in a string.
+			$City = mysqli_real_escape_string($Connection,$City);
+			
+			//Removes backslashes.
+			$Telephone = stripslashes($_REQUEST['Telephone']);
+			//Escapes special characters in a string.
+			$Telephone = mysqli_real_escape_string($Connection,$Telephone);
+			
+			//Removes backslashes.
+			$Mobile = stripslashes($_REQUEST['Mobile']);
+			//Escapes special characters in a string.
+			$Mobile = mysqli_real_escape_string($Connection,$Mobile);
+
+	        $Query = "INSERT INTO UserTable (Username, Password, FirstName, Surname, Addressline1, AddressLine2, City, Telephone, Mobile) VALUES ('$Username', '".md5($Password)."', '$FirstName', '$Surname', '$AddressLine1', '$AddressLine2', '$City', '$Telephone', '$Mobile')";
+	        $Result = mysqli_query($Connection,$Query);
+	        if($Result)
+			{
+	            echo "<div class='form'><h3>You have registered, please log in.</h3><br/>Click here to <a href='Login.php'>Login</a></div>";
+	        }
+	    }
+		else
+		{
+	?>
+		<div class="Form">
+		<h1>Registration</h1>
+			<form name="Registration" action="" method="post">
+				<input type="text" name="Username" placeholder="Username" required />
+				<input type="password" name="Password" placeholder="Password" required />
+				<input type="text" name="FirstName" placeholder="First Name" required />
+				<input type="text" name="Surname" placeholder="Surname" required />
+				<input type="text" name="AddressLine1" placeholder="Address Line 1" required />
+				<input type="text" name="AddressLine2" placeholder="Address Line 2" required />
+				<input type="text" name="City" placeholder="City" required />
+				<input type="text" name="Telephone" placeholder="Telephone" required />
+				<input type="text" name="Mobile" placeholder="Mobile" required />
+				<input type="submit" name="Submit" value="Register" />
+		</form>
+
+		</div>
+	<?php 
+	
+		} 
+	
+	?>
+			  
+    <!--Start of footer-->
+	<div class="clearfix"></div>
+	<div  class="footer">
+		<div class="container">
+			<p>Copyright. 2016 All rights reserved.</p>
+		</div>
+	</div>
+	
+</body>
+</html>
