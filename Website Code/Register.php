@@ -1,7 +1,7 @@
 <!--Web Development 2 Assingment-->
 <!--Author: Gabriel Grimberg.-->
 <!--Website: Library Website-->
-<!--Page: Contact-->
+<!--Page: Register-->
 
 <!DOCTYPE html>
 <html>
@@ -22,8 +22,9 @@
 			<ul class="nav">
 				<li><a href="Main-Page.html">Welcome</a></li>
 				<li><a href="search.html">Search</a></li>
-				<li><a href="Register.html">Register</a></li>
-				<li><a href="account.html">My Account</a></li>
+				<li><a href="Register.php">Register</a></li>
+				<li><a href="Login.php">Log In</a></li>
+				<li><a href="Logout.php">Log Out</a></li>
 			</ul>
 			</div>
 		</div>
@@ -33,7 +34,7 @@
 		<div class="container">  
 			<div class="main">
 				<h1>Registration</h1>
-				<p class="btn-primary">Register below to create your own account to use to search for books, rent them or view them. The form is below.</p>
+				<p class="btn-primary">You have now logged out, click on the navigator to log back in or go back to main page.</p>
 			</div>
 		</div>
 	</div>

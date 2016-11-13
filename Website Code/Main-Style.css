@@ -330,3 +330,55 @@ input[type='Submit']:hover
 	text-align: center;
 
 }
+
+/* PHP for Logged Out */
+
+.backgroundfix5
+{
+	background: url(http://wall-papers.info/images/nice-background-pic/nice-background-pic-6.jpg) no-repeat center center;
+	background-size: cover;
+	height: 500px;
+}
+
+/* Positioning for lower page */
+.supporting2 
+{
+	padding-top: 80px;
+	padding-bottom: 100px;
+}
+
+/* Column position */
+.supporting2 .col2
+{
+	float: center;
+	width: 33%;
+	font-family: 'Raleway', sans-serif;
+	text-align: center;
+}
+
+/* Resizing the image */
+.supporting2 img 
+{
+	height: 100px;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	
+}
+
+/* Text title for lower page */
+.supporting2 h2 
+{
+	font-weight: 600;
+	font-size: 23px;
+}
+
+/* Paragraph after text title */
+.supporting2 p 
+{
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+	padding: 0 50px;
+	margin-bottom: 40px;
+}

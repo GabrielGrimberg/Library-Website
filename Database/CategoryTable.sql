@@ -1,7 +1,7 @@
 CREATE TABLE CategoryTable
 (
-    CategoryID NUMBER(6) NOT NULL,
-    CategoryDescription VARCHAR2(50) NOT NULL,
+    CategoryID INT(30) NOT NULL,
+    CategoryDescription VARCHAR(50) NOT NULL,
 
     -- Constraints --
     CONSTRAINT  CategoryID_pk PRIMARY KEY(CategoryID)

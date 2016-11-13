@@ -1,17 +1,21 @@
 CREATE TABLE UserTable
 (
-    Username VARCHAR2,
-    Password VARCHAR2(50) NOT NULL,
-    FirstName VARCHAR2(50) NOT NULL,
-    Surname VARCHAR2(50) NOT NULL,
-    AddressLine1 VARCHAR2(50) NOT NULL,
-    AddressLine2 VARCHAR2(50),
-    City VARCHAR2(50),
-    Telephone NUMBER(11),
-    Mobile NUMBER(11),
+    Username VARCHAR,
+    Password VARCHAR(100) NOT NULL,
+    FirstName VARCHAR(50) NOT NULL,
+    Surname VARCHAR(50) NOT NULL,
+    AddressLine1 VARCHAR(50) NOT NULL,
+    AddressLine2 VARCHAR(50),
+    City VARCHAR(50),
+    Telephone INT(30),
+    Mobile INT(30),
 
     -- Constraints --
-    CONSTRAINT Username_pk PRIMARY KEY(Username)
+    CONSTRAINT Username_pk PRIMARY KEY(Username),
+    CONSTRAINT Users_Telephone_Num_chk CHECK (ISNUMERIC(Telephone)),
+    CONSTRAINT Users_Telephone_Size_chk CHECK (LEN(Telephone) = 10),
+    CONSTRAINT Users_Mobile_Num_chk CHECK (ISNUMERIC(Mobile)),
+    CONSTRAINT Users_Mobile_Size_chk CHECK (LEN(Mobile) = 10)
 );
 
 

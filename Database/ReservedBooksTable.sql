@@ -1,11 +1,13 @@
 CREATE TABLE ReservedBooksTable
 (
-    ISBN VARCHAR2(50) NOT NULL,
-    Username VARCHAR2(50) NOT NULL,
+    ISBN VARCHAR(50) NOT NULL,
+    Username VARCHAR(50) NOT NULL,
     ReservedDate DATE NOT NULL,
 
     -- Constraints --
     CONSTRAINT  ISBN_pk PRIMARY KEY(ISBN)
+    FOREIGN KEY(ISBN) REFERENCES BooksTable(ISBN),
+	FOREIGN KEY (Username) REFERENCES UserTable(Username)
 );
 
 /* Reserved Books Table Details */

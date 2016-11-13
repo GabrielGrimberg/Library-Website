@@ -1,7 +1,7 @@
 <!--Web Development 2 Assingment-->
 <!--Author: Gabriel Grimberg.-->
 <!--Website: Library Website-->
-<!--Page: Contact-->
+<!--Page: Log In-->
 
 <!DOCTYPE html>
 <html>
@@ -23,7 +23,8 @@
 				<li><a href="Main-Page.html">Welcome</a></li>
 				<li><a href="search.html">Search</a></li>
 				<li><a href="Register.php">Register</a></li>
-				<li><a href="Login.php">My Account</a></li>
+				<li><a href="Login.php">Log In</a></li>
+				<li><a href="Logout.php">Log Out</a></li>
 			</ul>
 			</div>
 		</div>

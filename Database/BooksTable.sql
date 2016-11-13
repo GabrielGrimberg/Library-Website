@@ -1,15 +1,16 @@
 CREATE TABLE BookTable
 (
-    ISBN VARCHAR2(50),
-    BookTitle VARCHAR2(50) NOT NULL,
-    Author VARCHAR2(50) NOT NULL,
-    Edition NUMBER(10) NOT NULL,
-    Year NUMBER(10) NOT NULL,
-    Category NUMBER(10),
-    Reserved VARCHAR2(5),
+    ISBN VARCHAR(50),
+    BookTitle VARCHAR(50) NOT NULL,
+    Author VARCHAR(50) NOT NULL,
+    Edition INT NOT NULL,
+    Year INT NOT NULL,
+    Category INT,
+    Reserved BOOLEAN,
 
     -- Constraints --
-    CONSTRAINT Reserved_pk PRIMARY KEY(Reserved)
+    CONSTRAINT ISBN_pk PRIMARY KEY(ISBN),
+    FOREIGN KEY (CategoryTable) REFERENCES CategoryTable(CategoryID)
 );
 
 /* Book Table Details */
