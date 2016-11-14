@@ -6,6 +6,6 @@
 		if(session_destroy())
 		{
 			// Redirecting if needed.
-			header("Location: Logout.php");
+			header("Location: LoggedOut.html");
 		}
 ?>

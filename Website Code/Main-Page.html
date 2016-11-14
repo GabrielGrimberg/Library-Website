@@ -20,7 +20,7 @@
 			 <div id="menu">
 						<ul class="nav">
 							<li><a href="Main-Page.html">Welcome</a></li>
-							<li><a href="search.html">Search</a></li>
+							<li><a href="Search.php">Search</a></li>
 							<li><a href="Register.php">Register</a></li>
 							<li><a href="Login.php">Log In</a></li>
 							<li><a href="LogoutButton.php">Log Out</a></li>
@@ -64,6 +64,17 @@
 						</div>
 					</div>
 					<!--End introduction-->
+					
+					<!-- PHP Start -->
+					<?php
+						
+							//Searching for Database to connect.
+							require('DatabaseConnection.php');
+						
+							//Include this PHP file to secure all pages.
+							include("LoggedSeason.php"); 
+						
+					?>
 					
 					<!--Start of footer-->
 					<div class="clearfix"></div>

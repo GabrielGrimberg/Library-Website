@@ -21,10 +21,10 @@
 			<div id="menu">
 			<ul class="nav">
 				<li><a href="Main-Page.html">Welcome</a></li>
-				<li><a href="search.html">Search</a></li>
+				<li><a href="Search.php">Search</a></li>
 				<li><a href="Register.php">Register</a></li>
 				<li><a href="Login.php">Log In</a></li>
-				<li><a href="Logout.php">Log Out</a></li>
+				<li><a href="LogoutButton.php">Log Out</a></li>
 			</ul>
 			</div>
 		</div>

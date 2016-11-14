@@ -21,10 +21,10 @@
 			<div id="menu">
 			<ul class="nav">
 				<li><a href="Main-Page.html">Welcome</a></li>
-				<li><a href="search.html">Search</a></li>
+				<li><a href="Search.php">Search</a></li>
 				<li><a href="Register.php">Register</a></li>
 				<li><a href="Login.php">Log In</a></li>
-				<li><a href="Logout.php">Log Out</a></li>
+				<li><a href="LogoutButton.php">Log Out</a></li>
 			</ul>
 			</div>
 		</div>
@@ -57,12 +57,12 @@
 			//Removes backslashes.
 			$Username = stripslashes($_REQUEST['Username']);
 			//Prevents SQL Injection.
-			$Username = mysqli_real_escape_string($Connection,$username);
+			$Username = mysqli_real_escape_string($Connection,$Username);
 			
 			//Removes backslashes.
 			$Password = stripslashes($_REQUEST['Password']);
 			//Prevents SQL Injection.
-			$Password = mysqli_real_escape_string($Connection,$password);
+			$Password = mysqli_real_escape_string($Connection,$Password);
 			
 			//Checking is user existing in the database or not
 	        $Query = "SELECT * FROM UserTable WHERE Username = '$Username' and Password = '".md5($Password)."'";
