@@ -51,50 +51,33 @@
 	    // If form submitted, insert values into the database.
 	    if (isset($_REQUEST['Username']))
 		{
-			//Removes backslashes.
-			$Username = stripslashes($_REQUEST['Username']);
 			//Escapes special characters in a string.
-			$Username = mysqli_real_escape_string($Connection,$Username);
+			$Username = mysqli_real_escape_string($Connection,$_REQUEST["Username"]);
 						
-			//Removes backslashes.
-			$Password = stripslashes($_REQUEST['Password']);
 			//Escapes special characters in a string.
-			$Password = mysqli_real_escape_string($Connection,$Password);
+			$Password = mysqli_real_escape_string($Connection,$_REQUEST["Password"]);
 			
-			//Removes backslashes.
-			$FirstName = stripslashes($_REQUEST['FirstName']);
 			//Escapes special characters in a string.
-			$FirstName = mysqli_real_escape_string($Connection,$FirstName);
+			$FirstName = mysqli_real_escape_string($Connection,$_REQUEST["FirstName"]);
+
+			//Escapes special characters in a string.
+			$Surname = mysqli_real_escape_string($Connection,$_REQUEST["Surname"]);
 			
-			//Removes backslashes.
-			$Surname = stripslashes($_REQUEST['Surname']);
+
 			//Escapes special characters in a string.
-			$Surname = mysqli_real_escape_string($Connection,$Surname);
+			$AddressLine1 = mysqli_real_escape_string($Connection,$_REQUEST["AddressLine1"]);
 			
-			//Removes backslashes.
-			$AddressLine1 = stripslashes($_REQUEST['AddressLine1']);
 			//Escapes special characters in a string.
-			$AddressLine1 = mysqli_real_escape_string($Connection,$AddressLine1);
+			$AddressLine2 = mysqli_real_escape_string($Connection,$_REQUEST["AddressLine2"]);
 			
-			//Removes backslashes.
-			$AddressLine2 = stripslashes($_REQUEST['AddressLine2']);
 			//Escapes special characters in a string.
-			$AddressLine2 = mysqli_real_escape_string($Connection,$AddressLine2);
+			$City = mysqli_real_escape_string($Connection,$_REQUEST["City"]);
 			
-			//Removes backslashes.
-			$City = stripslashes($_REQUEST['City']);
 			//Escapes special characters in a string.
-			$City = mysqli_real_escape_string($Connection,$City);
-			
-			//Removes backslashes.
-			$Telephone = stripslashes($_REQUEST['Telephone']);
+			$Telephone = mysqli_real_escape_string($Connection,$_REQUEST["Telephone"]);
+
 			//Escapes special characters in a string.
-			$Telephone = mysqli_real_escape_string($Connection,$Telephone);
-			
-			//Removes backslashes.
-			$Mobile = stripslashes($_REQUEST['Mobile']);
-			//Escapes special characters in a string.
-			$Mobile = mysqli_real_escape_string($Connection,$Mobile);
+			$Mobile = mysqli_real_escape_string($Connection,$_REQUEST["Mobile"]);
 
 	        $Query = "INSERT INTO UsersTable (Username, Password, FirstName, Surname, Addressline1, AddressLine2, City, Telephone, Mobile) VALUES ('$Username', '".md5($Password)."', '$FirstName', '$Surname', '$AddressLine1', '$AddressLine2', '$City', '$Telephone', '$Mobile')";
 	        $Result = mysqli_query($Connection,$Query);

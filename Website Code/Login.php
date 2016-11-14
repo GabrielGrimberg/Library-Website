@@ -45,24 +45,16 @@
 		//Searching for Database to connect.
 		require('DatabaseConnect.php');
 		
-		//Include this PHP file to secure all pages.
-		//include("LoggedSeason.php"); 
-		
-		//Start the season.
 		session_start();
-		
+				
 	    // If form submitted, insert values into the database.
 	    if(isset($_POST['Username']))
 		{
-			//Removes backslashes.
-			$Username = stripslashes($_REQUEST['Username']);
 			//Prevents SQL Injection.
-			$Username = mysqli_real_escape_string($Connection,$Username);
+			$Username = mysqli_real_escape_string($Connection,$_REQUEST['Username']);
 			
-			//Removes backslashes.
-			$Password = stripslashes($_REQUEST['Password']);
 			//Prevents SQL Injection.
-			$Password = mysqli_real_escape_string($Connection, $Password);
+			$Password = mysqli_real_escape_string($Connection, $_REQUEST['Password']);
 			
 			//Checking is user existing in the database or not
 	        $Query = "SELECT * FROM UserTable WHERE Username = '$Username' and Password = '".md5($Password)."'";
