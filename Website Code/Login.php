@@ -38,15 +38,15 @@
 			</div>
 		</div>
 	</div>
-				
+					
 	<!-- PHP to go here -->
 	<?php
 
 		//Searching for Database to connect.
-		require('DatabaseConnection.php');
+		require('DatabaseConnect.php');
 		
 		//Include this PHP file to secure all pages.
-		include("LoggedSeason.php"); 
+		//include("LoggedSeason.php"); 
 		
 		//Start the season.
 		session_start();
@@ -62,7 +62,7 @@
 			//Removes backslashes.
 			$Password = stripslashes($_REQUEST['Password']);
 			//Prevents SQL Injection.
-			$Password = mysqli_real_escape_string($Connection,$Password);
+			$Password = mysqli_real_escape_string($Connection, $Password);
 			
 			//Checking is user existing in the database or not
 	        $Query = "SELECT * FROM UserTable WHERE Username = '$Username' and Password = '".md5($Password)."'";
@@ -81,31 +81,24 @@
 	        }
 			else
 			{
-				echo "<div class='form'><h3>Username/password is incorrect.</h3><br/>Click here to <a href='Login.php'>Login</a></div>";
+				echo "<div class='form'><h3>Username/Password is incorrect.</h3><br/>Click here to try again:  <a href='Login.php'>Login</a></div>";
 			}
 	    }
-		else
-		{
 	?>
-		<div class="form">
-		<h1 class="loginheader">Log In</h1>
-			<form action="" method="post" name="login">
-				<input type="text" name="Username" placeholder="Username" required />
-				<input type="password" name="Password" placeholder="Password" required />
-				<input name="submit" type="submit" value="Login" />
-			</form>
-		<p>Not registered yet? <a href='register.php'>Register Here</a></p>
-
-		</div>
-
-	<?php 
 	
-		} 
-	
-	?>
+	<div class="form">
+	<h1 class="loginheader">Log In</h1>
+		<form action="" method="post" name="login">
+			<input type="text" name="Username" placeholder="Username" required />
+			<input type="password" name="Password" placeholder="Password" required />
+			<input name="submit" type="submit" value="Login" />
+		</form>
+		
+	<p>Not registered yet? <a href='register.php'>Register Here</a></p>
+
+	</div>
 	
     <!-- Start of footer -->
-
 	<div class="clearfix"></div>
 	<div  class="footer">
 		<div class="container">

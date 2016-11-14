@@ -46,7 +46,7 @@
 		require('DatabaseConnect.php');
 		
 		//Include this PHP file to secure all pages.
-		include("LoggedSeason.php"); 
+		//include("LoggedSeason.php"); 
 		
 	    // If form submitted, insert values into the database.
 	    if (isset($_REQUEST['Username']))
@@ -96,15 +96,18 @@
 			//Escapes special characters in a string.
 			$Mobile = mysqli_real_escape_string($Connection,$Mobile);
 
-	        $Query = "INSERT INTO UserTable (Username, Password, FirstName, Surname, Addressline1, AddressLine2, City, Telephone, Mobile) VALUES ('$Username', '".md5($Password)."', '$FirstName', '$Surname', '$AddressLine1', '$AddressLine2', '$City', '$Telephone', '$Mobile')";
+	        $Query = "INSERT INTO UsersTable (Username, Password, FirstName, Surname, Addressline1, AddressLine2, City, Telephone, Mobile) VALUES ('$Username', '".md5($Password)."', '$FirstName', '$Surname', '$AddressLine1', '$AddressLine2', '$City', '$Telephone', '$Mobile')";
 	        $Result = mysqli_query($Connection,$Query);
 	        if($Result)
 			{
 	            echo "<div class='form'><h3>You have registered, please log in.</h3><br/>Click here to <a href='Login.php'>Login</a></div>";
 	        }
-	    }
-		else
-		{
+			else
+			{
+				echo "<div class='form'><h3>Incorrect Details, please try again.</h3><br/>Click here to <a href='Register.php'>Login</a></div>";
+			}
+		}
+			
 	?>
 		<div class="Form">
 		<h1>Registration</h1>
@@ -119,14 +122,8 @@
 				<input type="text" name="Telephone" placeholder="Telephone" required />
 				<input type="text" name="Mobile" placeholder="Mobile" required />
 				<input type="submit" name="Submit" value="Register" />
-		</form>
-
+			</form>
 		</div>
-	<?php 
-	
-		} 
-	
-	?>
 			  
     <!--Start of footer-->
 	<div class="clearfix"></div>
@@ -137,4 +134,5 @@
 	</div>
 	
 </body>
+
 </html>
