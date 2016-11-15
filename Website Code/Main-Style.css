@@ -332,7 +332,6 @@ input[type='Submit']:hover
 }
 
 /* PHP for Logged Out */
-
 .backgroundfix5
 {
 	background: url(http://wall-papers.info/images/nice-background-pic/nice-background-pic-6.jpg) no-repeat center center;
@@ -381,4 +380,12 @@ input[type='Submit']:hover
 	line-height: 20px;
 	padding: 0 50px;
 	margin-bottom: 40px;
+}
+
+/* PHP/HTML for Search Page */
+.backgroundfix6
+{
+	background: url(https://media.npr.org/assets/img/2015/12/04/best-books-2015_wide-18ea71bcef7792d9fd6ea5183846999a06b17eee.jpg?s=1400) no-repeat center center;
+	background-size: cover;
+	height: 500px;
 }
