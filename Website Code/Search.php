@@ -48,6 +48,37 @@
 		//Connection to database.
 		require('DatabaseConnect.php');
 		
+		if(!empty($_REQUEST['Search'])) 
+		{
+
+			$Searching = mysqli_real_escape_string($Connection,$_REQUEST['Search']);  
+
+			$TableSearch = " SELECT * 
+							 FROM  BookTable
+							 WHERE BookTitle 
+							 LIKE '%".$Searching."%' "; 
+			$Finding = mysqli_query($Connection,$TableSearch); 
+			
+			//Error checking.
+			if(!$Finding)
+			{ 
+				printf("Error: %s\n", mysqli_error($Connection));
+				exit();
+			}
+
+			while($Row = mysqli_fetch_array($Finding, MYSQL_BOTH))
+			{  
+				echo        'ISBN:       ' .$Row['ISBN'];  
+				echo '<br /> Book Title: ' .$Row['BookTitle']; 
+				echo '<br /> Author:     ' .$Row['Author'];
+				echo '<br /> Edition:    ' .$Row['Edition'];  
+				echo '<br /> Category:   ' .$Row['Category'];  
+				echo '<br /> Reserved:   ' .$Row['Reserved'];   
+				echo '<br /> <br />';
+			}  
+
+		}
+		
 		
 	?>
 	
