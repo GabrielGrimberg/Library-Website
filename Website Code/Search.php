@@ -23,7 +23,7 @@
 				<li><a href="Main-Page.html">Welcome</a></li>
 				<li><a href="Search.php">Search</a></li>
 				<li><a href="Register.php">Register</a></li>
-				<li><a href="Login.php">Log In</a></li>
+				<li><a href="Login.php">My Account</a></li>
 				<li><a href="LoggedOut.php">Log Out</a></li>
 			</ul>
 			</div>
@@ -86,6 +86,12 @@
 	<h1 class="loginheader">Search For A Book</h1>
 		<form action="" method="post" name="search">
 			<input type="text" name="Search" placeholder="Search for a book..." required />
+			<select name="SearchOptions">
+				<option value="Author">Any</option>
+				<option value="Author">Author</option>
+				<option value="Title">Title</option>
+				<option value="Category">Category</option>
+			</select>
 			<input type="submit" name="submit" value="Search" />
 		</form>
 					  

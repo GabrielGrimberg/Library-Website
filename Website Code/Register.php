@@ -23,7 +23,7 @@
 				<li><a href="Main-Page.html">Welcome</a></li>
 				<li><a href="Search.php">Search</a></li>
 				<li><a href="Register.php">Register</a></li>
-				<li><a href="Login.php">Log In</a></li>
+				<li><a href="Login.php">My Account</a></li>
 				<li><a href="LoggedOut.php">Log Out</a></li>
 			</ul>
 			</div>
@@ -38,15 +38,13 @@
 			</div>
 		</div>
 	</div>
-				
+	
+
 	<!-- PHP to go here -->
 	<?php
 		
 		//Include to connect to database.
 		require('DatabaseConnect.php');
-		
-		//Include this PHP file to secure all pages.
-		//include("LoggedSeason.php"); 
 		
 	    // If form submitted, insert values into the database.
 	    if (isset($_REQUEST['Username']))
@@ -58,12 +56,14 @@
 			$Password = mysqli_real_escape_string($Connection,$_REQUEST["Password"]);
 			
 			//Escapes special characters in a string.
+			$RePassword = mysqli_real_escape_string($Connection,$_REQUEST["RePassword"]);
+			
+			//Escapes special characters in a string.
 			$FirstName = mysqli_real_escape_string($Connection,$_REQUEST["FirstName"]);
 
 			//Escapes special characters in a string.
 			$Surname = mysqli_real_escape_string($Connection,$_REQUEST["Surname"]);
 			
-
 			//Escapes special characters in a string.
 			$AddressLine1 = mysqli_real_escape_string($Connection,$_REQUEST["AddressLine1"]);
 			
@@ -78,18 +78,50 @@
 
 			//Escapes special characters in a string.
 			$Mobile = mysqli_real_escape_string($Connection,$_REQUEST["Mobile"]);
+			
+			if ($Password != $RePassword) 
+			{
+				echo "<div class='form'><h3>Passwords do not match please try again.</h3><br/>Click here to <a href='Register.php'>Try Again</a></div>";
+				goto SkipBackToForm;
+			
+			}
+			
+			if(strlen($Password) < 6)
+			{
+				echo "<div class='form'><h3>The password must be at least 6 characters.</h3><br/>Click here to <a href='Register.php'>Click Here to Try Again</a></div>";
+				goto SkipBackToForm;
+			}
+			
+			if (!is_numeric($Telephone))
+			{
+				echo "<div class='form'><h3>Your telephone must be numeric.</h3><br/>Click here to <a href='Register.php'>Click Here to Try Again</a></div>";
+				goto SkipBackToForm;
+			}
+			
+			if (!is_numeric($Mobile))
+			{
+				echo "<div class='form'><h3>Your $Mobile must be numeric.</h3><br/>Click here to <a href='Register.php'>Click Here to Try Again</a></div>";
+				goto SkipBackToForm;
+			}
 
-	        $Query = "INSERT INTO UsersTable (Username, Password, FirstName, Surname, Addressline1, AddressLine2, City, Telephone, Mobile) VALUES ('$Username', '".md5($Password)."', '$FirstName', '$Surname', '$AddressLine1', '$AddressLine2', '$City', '$Telephone', '$Mobile')";
+	        $Query = "INSERT INTO UsersTable (Username, Password, FirstName, Surname, Addressline1, AddressLine2, City, Telephone, Mobile) 
+					   VALUES ('$Username', '".md5($Password)."', '$FirstName', '$Surname',
+							   '$AddressLine1', '$AddressLine2', '$City', '$Telephone', '$Mobile')";
+							
 	        $Result = mysqli_query($Connection,$Query);
 	        if($Result)
 			{
 	            echo "<div class='form'><h3>You have registered, please log in.</h3><br/>Click here to <a href='Login.php'>Login</a></div>";
+				exit;
 	        }
 			else
 			{
-				echo "<div class='form'><h3>Incorrect Details, please try again.</h3><br/>Click here to <a href='Register.php'>Login</a></div>";
+				echo "<div class='form'><h3>Username already in the database, try again.</h3><br/>Click here to <a href='Register.php'>Try Again</a></div>";
 			}
 		}
+		
+		//If Any Error Happens pull the form again to try again.
+		SkipBackToForm:
 			
 	?>
 		<div class="Form">
@@ -97,6 +129,7 @@
 			<form name="Registration" action="" method="post">
 				<input type="text" name="Username" placeholder="Username" required />
 				<input type="password" name="Password" placeholder="Password" required />
+				<input type="password" name="RePassword" placeholder="Confirm Your Password" required />
 				<input type="text" name="FirstName" placeholder="First Name" required />
 				<input type="text" name="Surname" placeholder="Surname" required />
 				<input type="text" name="AddressLine1" placeholder="Address Line 1" required />
@@ -107,7 +140,7 @@
 				<input type="submit" name="Submit" value="Register" />
 			</form>
 		</div>
-			  
+		  
     <!--Start of footer-->
 	<div class="clearfix"></div>
 	<div  class="footer">
@@ -115,7 +148,6 @@
 			<p>Copyright. 2016 All rights reserved.</p>
 		</div>
 	</div>
-	
 </body>
 
 </html>
