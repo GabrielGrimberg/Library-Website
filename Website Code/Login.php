@@ -24,7 +24,7 @@
 				<li><a href="Search.php">Search</a></li>
 				<li><a href="Register.php">Register</a></li>
 				<li><a href="Login.php">Log In</a></li>
-				<li><a href="LogoutButton.php">Log Out</a></li>
+				<li><a href="LoggedOut.php">Log Out</a></li>
 			</ul>
 			</div>
 		</div>
@@ -42,11 +42,15 @@
 	<!-- PHP to go here -->
 	<?php
 	
-		//Starting the season.
-		session_start();
-		
+
 		//Connection to database.
 		require('DatabaseConnect.php');
+		
+		//Starting the season.
+		if(empty($_SESSION)) 
+		{
+			session_start();
+		}
 		
 		//If the form is submitted.
 		if(isset($_POST['Username']) and isset($_POST['Password']))
@@ -77,18 +81,18 @@
 		if(isset($_SESSION['Username']))
 		{
 			$Username = $_SESSION['Username'];
+			echo "<br><br>";
 			echo "Hello " . $Username . "<br>";
 			echo "You have successfully logged in. <br>";
 			echo "What would you like to do? <br>";
 			echo "<a href='Search.php'>Search For Books</a> <br>";
 			echo "<a href='Main-Page.html'>Go To Main Page</a> <br>";
-			echo "<a href='LoggedOut.html'>Not you? Logout.</a> <br>";
+			echo "<a href='LogoutButton.php'>Not you? Logout.</a> <br>";
+			echo "<br><br><br><br>";
 		 
 		}
 		else
-		{
-		//The form below.
-		}			
+		{		
 	?>
 	
 	<div class="form">
@@ -103,6 +107,8 @@
 
 	</div>
 	
+	<?php } ?>
+		
     <!-- Start of footer -->
 	<div class="clearfix"></div>
 	<div  class="footer">
