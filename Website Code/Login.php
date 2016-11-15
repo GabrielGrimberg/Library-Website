@@ -41,41 +41,54 @@
 					
 	<!-- PHP to go here -->
 	<?php
-
-		//Searching for Database to connect.
+	
+		//Starting the season.
+		session_start();
+		
+		//Connection to database.
 		require('DatabaseConnect.php');
 		
-		session_start();
-				
-	    // If form submitted, insert values into the database.
-	    if(isset($_POST['Username']))
+		//If the form is submitted.
+		if(isset($_POST['Username']) and isset($_POST['Password']))
 		{
-			//Prevents SQL Injection.
-			$Username = mysqli_real_escape_string($Connection,$_REQUEST['Username']);
+			//Assinging the values entered into variables.
+			$Username = $_POST['Username'];
+			$Password = $_POST['Password'];
 			
-			//Prevents SQL Injection.
-			$Password = mysqli_real_escape_string($Connection, $_REQUEST['Password']);
+			//Comparing these variables to see if they match from the SQL Table.
+			$Query = "SELECT * FROM UsersTable WHERE Username = '$Username' and Password = '".md5($Password)."'";
+			 
+			$Result = mysqli_query($Connection, $Query) or die(mysqli_error($Connection));
+			$Count = mysqli_num_rows($Result);
 			
-			//Checking is user existing in the database or not
-	        $Query = "SELECT * FROM UserTable WHERE Username = '$Username' and Password = '".md5($Password)."'";
-	
-			//See if result is matched.
-			$Result = mysqli_query($Connection,$Query) or die(mysql_error());
-			
-			$Rows = mysqli_num_rows($Result);
-			
-	        if($Rows == 1)
+			//If it matches create a new season.
+			if ($Count == 1)
 			{
 				$_SESSION['Username'] = $Username;
-				
-				//When logged in direct user to page.
-				header("Location: Search.php");
-	        }
+			}
+			//If not then display an error message.
 			else
 			{
-				echo "<div class='form'><h3>Username/Password is incorrect.</h3><br/>Click here to try again:  <a href='Login.php'>Login</a></div>";
+				echo "Username/Password entered is invalid, try again.";
 			}
-	    }
+		}
+		
+		//If user is logged in, send a greeting message.
+		if(isset($_SESSION['Username']))
+		{
+			$Username = $_SESSION['Username'];
+			echo "Hello " . $Username . "<br>";
+			echo "You have successfully logged in. <br>";
+			echo "What would you like to do? <br>";
+			echo "<a href='Search.php'>Search For Books</a> <br>";
+			echo "<a href='Main-Page.html'>Go To Main Page</a> <br>";
+			echo "<a href='LoggedOut.html'>Not you? Logout.</a> <br>";
+		 
+		}
+		else
+		{
+		//The form below.
+		}			
 	?>
 	
 	<div class="form">
@@ -86,7 +99,7 @@
 			<input name="submit" type="submit" value="Login" />
 		</form>
 		
-	<p>Not registered yet? <a href='register.php'>Register Here</a></p>
+	<p>Not registered yet? <a href='Register.php'>Register Here</a></p>
 
 	</div>
 	
