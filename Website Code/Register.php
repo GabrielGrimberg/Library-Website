@@ -46,8 +46,22 @@
 		//Include to connect to database.
 		require('DatabaseConnect.php');
 		
+		session_start();
+		
+		//Checking if user is already logged in.
+		//If logged in then you can't make a new account.
+		if(isset($_SESSION['Username'])) 
+		{
+			echo "<br>";
+			echo "<h3>You're already logged in, log out if you wish to make a new account.</h3><br/>";
+			echo "<br><br><br><br><br><br>";
+			
+			//Not recommened but solves the missing footer problem.
+			goto includeFooter;
+		}
+		
 	    // If form submitted, insert values into the database.
-	    if (isset($_REQUEST['Username']))
+	    if(isset($_REQUEST['Username']))
 		{
 			//Escapes special characters in a string.
 			$Username = mysqli_real_escape_string($Connection,$_REQUEST["Username"]);
@@ -79,44 +93,77 @@
 			//Escapes special characters in a string.
 			$Mobile = mysqli_real_escape_string($Connection,$_REQUEST["Mobile"]);
 			
+			//Validation For: Matching passwords which both have to match.
 			if ($Password != $RePassword) 
 			{
-				echo "<div class='form'><h3>Passwords do not match please try again.</h3><br/>Click here to <a href='Register.php'>Try Again</a></div>";
+				echo "<h3>The passwords don't match, please make sure you're typing it correctly.</h3><br/>";
+				//Not wise but wiser to use than exit; as exit doesn't display the form again.
 				goto SkipBackToForm;
 			
 			}
 			
+			//Validation For: Password which should be more than 6 characters long.
 			if(strlen($Password) < 6)
 			{
-				echo "<div class='form'><h3>The password must be at least 6 characters.</h3><br/>Click here to <a href='Register.php'>Click Here to Try Again</a></div>";
+				echo "Your password should be at least 6 characters long.";
+				
+				//Not wise but wiser to use than exit; as exit doesn't display the form again.
 				goto SkipBackToForm;
 			}
 			
+			//Validation For: Telephone number must be digits not characters.
 			if (!is_numeric($Telephone))
 			{
-				echo "<div class='form'><h3>Your telephone must be numeric.</h3><br/>Click here to <a href='Register.php'>Click Here to Try Again</a></div>";
+				echo "<h3>Your Telephone must be numeric, it must only contain valid numbers.</h3><br/>";
+				
+				//Not wise but wiser to use than exit; as exit doesn't display the form again.
 				goto SkipBackToForm;
 			}
 			
-			if (!is_numeric($Mobile))
+			//Validation For: Mobile number must be digits not characters.
+			if (!is_numeric($Mobile) )
 			{
-				echo "<div class='form'><h3>Your $Mobile must be numeric.</h3><br/>Click here to <a href='Register.php'>Click Here to Try Again</a></div>";
+				echo "<h3>Your Mobile must be numeric, it must only contain valid numbers.</h3><br/>";
+				
+				//Not wise but wiser to use than exit; as exit doesn't display the form again.
 				goto SkipBackToForm;
 			}
-
+			
+			//Validation For: Mobile number must be 10 digits long.
+			if (strlen($Mobile) != 10)
+			{
+				echo "<h3>Your mobile number should be 10 digits long.</h3><br/>";
+				
+				//Not wise but wiser to use than exit; as exit doesn't display the form again.
+				goto SkipBackToForm;
+			}
+			
+			//If no error occurs, put in the values into the UserTable in MySQL.
+			//Notice the passwords entered will not be displayed in the SQL table.
+			//They are salted so no one can see what they are.
+			//Prevents hackers from getting the password if they have the server.
 	        $Query = "INSERT INTO UsersTable (Username, Password, FirstName, Surname, Addressline1, AddressLine2, City, Telephone, Mobile) 
 					   VALUES ('$Username', '".md5($Password)."', '$FirstName', '$Surname',
 							   '$AddressLine1', '$AddressLine2', '$City', '$Telephone', '$Mobile')";
-							
+			
+			//If all goes well and results have been entered, then account made.				
 	        $Result = mysqli_query($Connection,$Query);
 	        if($Result)
 			{
+				echo "<br>";
+				
 	            echo "<div class='form'><h3>You have registered, please log in.</h3><br/>Click here to <a href='Login.php'>Login</a></div>";
-				exit;
+	
+				echo "<br><br>";
+				
+				//Not recommened but solves the missing footer problem.
+				goto includeFooter;
 	        }
+	
+			//If username already made then give an error message and don't allow to continue.
 			else
 			{
-				echo "<div class='form'><h3>Username already in the database, try again.</h3><br/>Click here to <a href='Register.php'>Try Again</a></div>";
+				echo "<h3>Username already exists, please try another username.</h3><br/>";
 			}
 		}
 		
@@ -142,6 +189,7 @@
 		</div>
 		  
     <!--Start of footer-->
+	<?php includeFooter: ?>
 	<div class="clearfix"></div>
 	<div  class="footer">
 		<div class="container">

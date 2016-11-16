@@ -87,7 +87,7 @@
 			echo "What would you like to do? <br>";
 			echo "<a href='Search.php'>Search For Books</a> <br>";
 			echo "<a href='Main-Page.html'>Go To Main Page</a> <br>";
-			echo "<a href='LogoutButton.php'>Not you? Logout.</a> <br>";
+			echo "<a href='LoggedOut.php'>Not you? Logout.</a> <br>";
 			echo "<br><br><br><br>";
 		 
 		}
