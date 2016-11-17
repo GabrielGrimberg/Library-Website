@@ -30,6 +30,7 @@
 		</div>
 	</div>
 	
+	
 	<div class="backgroundfix5">
 		<div class="container">  
 			<div class="main">
@@ -46,20 +47,15 @@
 		session_destroy();
 	?>
 
-	<!-- Not Needed For Now -->
-	
+	<br><br>
 	<div class="supporting2">
-	<div class="container2">
-	<div class="col2">
-		<img src="http://careersatwhich.co.uk/comebacksoon/img/comeback.jpg" align="middle">
+		<img src="http://www.seeyousoon.tokyo/img/ogimage.png">
 		<h2>You Have Logged Out</h2>
 		<p>We miss you already! Made a mistake and need to log back in? Click below.</p>
-		<a class="btn-default" href="Login.php">Click Here To Log Back In</a>
+		<a href="Login.php">Log In</a>
 	</div>
-	</div>
-	</div>
-		
-					  
+	<br><br>
+
     <!--Start of footer-->
 	<div class="clearfix"></div>
 	<div  class="footer">

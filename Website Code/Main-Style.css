@@ -184,7 +184,7 @@ html, body
 
 .backgroundfix3
 {
-	background: url(http://6sigmaconsulting.org/wp-content/uploads/2015/12/6Sigma_slideroption3.jpg) no-repeat center center;
+	background: url(https://esmi-fp7.net/media/images/global/head-bg-2.jpg) no-repeat center center;
 	background-size: cover;
 	height: 500px;
 }
@@ -194,6 +194,7 @@ form
 	/* Just to center the form on the page */
 	margin: 0 auto;
 	width: 400px;
+	
 	/* To see the outline of the form */
 	padding: 1em;
 	border-radius: 1em;
@@ -280,14 +281,31 @@ a:hover
 	text-decoration: underline;
 }
 
+/* For all the form options in pages */
 .Form
 {
-	width: 300px; 
-	margin: auto;
+	color: #000000;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 50;
+	font-size: 10px;
+	text-align: center;
+	margin-bottom: 25px; /* Margin from footer */
+	text-transform: uppercase;
+}
+
+.Form2
+{
+	color: #000000;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 50;
+	font-size: 10px;
+	text-align: center;
+	text-transform: uppercase;
 }
 
 input[type='text'], input[type='password'] 
 {
+	text-align: center;
 	width: 200px; 
 	border-radius: 
 	2px;border: 
@@ -301,10 +319,11 @@ input[type='text'], input[type='password']
 
 input[type='Submit']
 {
+	text-align: center;
 	padding: 10px 15px 8px; 
 	text-align: center;
 	color: #fff; 
-	background-color: #000000; /* Black */ 
+	background-color: #000000; /* Black */
 	font-size: 16px; 
 	border-radius: 10px; 
 	margin-top: 20px; 
@@ -334,55 +353,37 @@ input[type='Submit']:hover
 /* PHP for Logged Out */
 .backgroundfix5
 {
-	background: url(http://wall-papers.info/images/nice-background-pic/nice-background-pic-6.jpg) no-repeat center center;
+	background: url(http://2il.org/wp-content/uploads/2014/02/Library-in-florence-italy-awesome-design.jpg) no-repeat center center;
 	background-size: cover;
 	height: 500px;
 }
 
-/* Positioning for lower page */
-.supporting2 
+/* PHP/HTML for Search Page */
+.supporting2 img
 {
-	padding-top: 80px;
-	padding-bottom: 100px;
+	display: block;
+	margin: 0 auto;
 }
 
-/* Column position */
-.supporting2 .col2
+.supporting2 p
 {
-	float: center;
-	width: 33%;
-	font-family: 'Raleway', sans-serif;
 	text-align: center;
 }
 
-/* Resizing the image */
-.supporting2 img 
+.supporting2 h2
 {
-	height: 100px;
-	display:block;
-	margin-left:auto;
-	margin-right:auto;
-	
+	text-align: center;
 }
 
-/* Text title for lower page */
-.supporting2 h2 
+.supporting2 a
 {
-	font-weight: 600;
-	font-size: 23px;
+	margin: 0 auto; 
+	display: block;
+	text-align: center;
+	text-transform: uppercase;
+  
 }
 
-/* Paragraph after text title */
-.supporting2 p 
-{
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 20px;
-	padding: 0 50px;
-	margin-bottom: 40px;
-}
-
-/* PHP/HTML for Search Page */
 .backgroundfix6
 {
 	background: url(https://media.npr.org/assets/img/2015/12/04/best-books-2015_wide-18ea71bcef7792d9fd6ea5183846999a06b17eee.jpg?s=1400) no-repeat center center;

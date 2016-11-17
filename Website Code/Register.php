@@ -105,7 +105,7 @@
 			//Validation For: Password which should be more than 6 characters long.
 			if(strlen($Password) < 6)
 			{
-				echo "Your password should be at least 6 characters long.";
+				echo "<div class='adjust'><h3>Your password should be at least 6 characters long.</h3><br/></div>";
 				
 				//Not wise but wiser to use than exit; as exit doesn't display the form again.
 				goto SkipBackToForm;
@@ -114,7 +114,7 @@
 			//Validation For: Telephone number must be digits not characters.
 			if (!is_numeric($Telephone))
 			{
-				echo "<h3>Your Telephone must be numeric, it must only contain valid numbers.</h3><br/>";
+				echo "<h3>Your telephone must be numeric, it must only contain valid numbers.</h3><br/>";
 				
 				//Not wise but wiser to use than exit; as exit doesn't display the form again.
 				goto SkipBackToForm;
@@ -152,7 +152,7 @@
 			{
 				echo "<br>";
 				
-	            echo "<div class='form'><h3>You have registered, please log in.</h3><br/>Click here to <a href='Login.php'>Login</a></div>";
+	            echo "<div class='Form'><h3>You have registered, please log in.</h3><br/>Click here to <a href='Login.php'>Login</a></div>";
 	
 				echo "<br><br>";
 				
@@ -172,7 +172,7 @@
 			
 	?>
 		<div class="Form">
-		<h1>Registration</h1>
+		<h1>Fill in the form below</h1>
 			<form name="Registration" action="" method="post">
 				<input type="text" name="Username" placeholder="Username" required />
 				<input type="password" name="Password" placeholder="Password" required />

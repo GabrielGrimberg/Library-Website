@@ -95,7 +95,7 @@
 		{		
 	?>
 	
-	<div class="form">
+	<div class="Form">
 	<h1 class="loginheader">Log In</h1>
 		<form action="" method="post" name="login">
 			<input type="text" name="Username" placeholder="Username" required />

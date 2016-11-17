@@ -82,7 +82,7 @@
 	?>
 	
 	<!-- HTML Search Below This -->
-	<div class="form">
+	<div class="Form2">
 	<h1 class="loginheader">Search For A Book</h1>
 		<form action="" method="post" name="search">
 			<input type="text" name="Search" placeholder="Search for a book..." required />
@@ -96,6 +96,7 @@
 		</form>
 					  
     <!--Start of footer-->
+	<br><br><br><br><br>	
 	<div class="clearfix"></div>
 	<div  class="footer">
 		<div class="container">
