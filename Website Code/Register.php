@@ -53,7 +53,7 @@
 		if(isset($_SESSION['Username'])) 
 		{
 			echo "<br>";
-			echo "<h3>You're already logged in, log out if you wish to make a new account.</h3><br/>";
+			echo "<div class='Form2'><h2>You're already logged in, log out if you wish to make a new account.</h2></div>";
 			echo "<br><br><br><br><br><br>";
 			
 			//Not recommened but solves the missing footer problem.
@@ -96,7 +96,7 @@
 			//Validation For: Matching passwords which both have to match.
 			if ($Password != $RePassword) 
 			{
-				echo "<h3>The passwords don't match, please make sure you're typing it correctly.</h3><br/>";
+				echo "<div class='Form'><h3>The passwords don't match, please make sure you're typing it correctly.</h3><br/></div>";
 				//Not wise but wiser to use than exit; as exit doesn't display the form again.
 				goto SkipBackToForm;
 			
@@ -105,7 +105,7 @@
 			//Validation For: Password which should be more than 6 characters long.
 			if(strlen($Password) < 6)
 			{
-				echo "<div class='adjust'><h3>Your password should be at least 6 characters long.</h3><br/></div>";
+				echo "<div class='Form'><h3>Your password should be at least 6 characters long.</h3><br/></div>";
 				
 				//Not wise but wiser to use than exit; as exit doesn't display the form again.
 				goto SkipBackToForm;
@@ -114,7 +114,7 @@
 			//Validation For: Telephone number must be digits not characters.
 			if (!is_numeric($Telephone))
 			{
-				echo "<h3>Your telephone must be numeric, it must only contain valid numbers.</h3><br/>";
+				echo "<div class='Form'><h3>Your telephone must be numeric, it must only contain valid numbers.</h3><br/></div>";
 				
 				//Not wise but wiser to use than exit; as exit doesn't display the form again.
 				goto SkipBackToForm;
@@ -123,7 +123,7 @@
 			//Validation For: Mobile number must be digits not characters.
 			if (!is_numeric($Mobile) )
 			{
-				echo "<h3>Your Mobile must be numeric, it must only contain valid numbers.</h3><br/>";
+				echo "<div class='Form'><h3>Your Mobile must be numeric, it must only contain valid numbers.</h3><br/></div>";
 				
 				//Not wise but wiser to use than exit; as exit doesn't display the form again.
 				goto SkipBackToForm;
@@ -132,7 +132,7 @@
 			//Validation For: Mobile number must be 10 digits long.
 			if (strlen($Mobile) != 10)
 			{
-				echo "<h3>Your mobile number should be 10 digits long.</h3><br/>";
+				echo "<div class='Form'><h3>Your mobile number should be 10 digits long.</h3><br/></div>";
 				
 				//Not wise but wiser to use than exit; as exit doesn't display the form again.
 				goto SkipBackToForm;
@@ -163,7 +163,7 @@
 			//If username already made then give an error message and don't allow to continue.
 			else
 			{
-				echo "<h3>Username already exists, please try another username.</h3><br/>";
+				echo "<div class='Form'><h3>Username already exists, please try another username.</h3><br/></div>";
 			}
 		}
 		

@@ -42,6 +42,7 @@
 				
 	<!-- PHP to go here -->
 	<?php
+	
 		session_start();
 		unset($_SESSION['Username']);
 		session_destroy();
@@ -49,14 +50,14 @@
 
 	<br><br>
 	<div class="supporting2">
-		<img src="http://www.seeyousoon.tokyo/img/ogimage.png">
-		<h2>You Have Logged Out</h2>
+		<div class = "Form2"><h2>You Have Logged Out</h2></div>
 		<p>We miss you already! Made a mistake and need to log back in? Click below.</p>
 		<a href="Login.php">Log In</a>
 	</div>
-	<br><br>
+	<br><br><br><br><br>
 
     <!--Start of footer-->
+	<?php includeFooter: ?>
 	<div class="clearfix"></div>
 	<div  class="footer">
 		<div class="container">

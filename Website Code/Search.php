@@ -77,8 +77,7 @@
 			}  
 
 		}
-		
-		
+
 	?>
 	
 	<!-- HTML Search Below This -->
@@ -86,12 +85,15 @@
 	<h1 class="loginheader">Search For A Book</h1>
 		<form action="" method="post" name="search">
 			<input type="text" name="Search" placeholder="Search for a book..." required />
-			<select name="SearchOptions">
-				<option value="Author">Any</option>
-				<option value="Author">Author</option>
-				<option value="Title">Title</option>
-				<option value="Category">Category</option>
-			</select>
+			<br><br><br>
+			<div class="loginheader">
+				<select name="SearchOptions">
+					<option value="Author">Any</option>
+					<option value="Author">Author</option>
+					<option value="Title">Title</option>
+					<option value="Category">Category</option>
+				</select>
+			</div>
 			<input type="submit" name="submit" value="Search" />
 		</form>
 					  

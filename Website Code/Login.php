@@ -73,7 +73,7 @@
 			//If not then display an error message.
 			else
 			{
-				echo "Username/Password entered is invalid, try again.";
+				echo "<div class='Form'><h3>Username/Password entered is invalid, try again.</h3></div>";
 			}
 		}
 		
@@ -82,13 +82,13 @@
 		{
 			$Username = $_SESSION['Username'];
 			echo "<br><br>";
-			echo "Hello " . $Username . "<br>";
-			echo "You have successfully logged in. <br>";
-			echo "What would you like to do? <br>";
-			echo "<a href='Search.php'>Search For Books</a> <br>";
-			echo "<a href='Main-Page.html'>Go To Main Page</a> <br>";
-			echo "<a href='LoggedOut.php'>Not you? Logout.</a> <br>";
-			echo "<br><br><br><br>";
+			echo "<div class='Form'><h1>Hello " . $Username . "<br></h1></div>";
+			echo "<div class='Form'><h2>You have successfully logged in. <br></h2></div>";
+			echo "<div class='Form'><h2>What would you like to do? <br></h2></div>";
+			echo "<div class='Form'><h3><a href='Search.php'>Search For Books</a> <br></h3></div>";
+			echo "<div class='Form'><h3><a href='Main-Page.html'>Go To Main Page</a> <br></h3></div>";
+			echo "<div class='Form'><h3><a href='LoggedOut.php'>Not you? Logout.</a> <br></h3></div>";
+			echo "<br><br>";
 		 
 		}
 		else

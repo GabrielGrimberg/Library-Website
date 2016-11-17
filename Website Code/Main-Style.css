@@ -390,3 +390,11 @@ input[type='Submit']:hover
 	background-size: cover;
 	height: 500px;
 }
+
+select 
+{
+	background-color: #A9A9A9;
+	border: 10px solid #A9A9A9;
+	font-size: 15px;
+	overflow: hidden;
+}
