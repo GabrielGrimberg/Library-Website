@@ -42,6 +42,9 @@
 	<!-- PHP to go here -->
 	<?php
 	
+		//Variable for flow of searching.
+		$SearchAgain = 0;
+		
 		//Starting the season.
 		
 		//Connection to database.
@@ -66,15 +69,25 @@
 			}
 
 			while($Row = mysqli_fetch_array($Finding, MYSQL_BOTH))
-			{  
-				echo        'ISBN:       ' .$Row['ISBN'];  
+			{
+				echo '<br /> ISBN:       ' .$Row['ISBN'];  
 				echo '<br /> Book Title: ' .$Row['BookTitle']; 
 				echo '<br /> Author:     ' .$Row['Author'];
 				echo '<br /> Edition:    ' .$Row['Edition'];  
 				echo '<br /> Category:   ' .$Row['Category'];  
 				echo '<br /> Reserved:   ' .$Row['Reserved'];   
 				echo '<br /> <br />';
-			}  
+			}
+			
+			$SearchAgain++;
+			
+			//Including the footer. Also the option to search again.
+			if($SearchAgain == 1)
+			{
+				echo "<div class='Form'><h3>Would you like to search again?</h3><br/>Click here to <a href='Search.php'>Search Again</a></div>";
+				goto SIncludeFooter; 
+				$SearchAgain = 0;
+			}
 
 		}
 
@@ -98,7 +111,9 @@
 		</form>
 					  
     <!--Start of footer-->
-	<br><br><br><br><br>	
+	<br><br><br><br><br>
+	
+	<?php SIncludeFooter: ?>
 	<div class="clearfix"></div>
 	<div  class="footer">
 		<div class="container">
