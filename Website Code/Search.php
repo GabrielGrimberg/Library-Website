@@ -39,81 +39,59 @@
 		</div>
 	</div>
 				
-	<!-- PHP to go here -->
-	<?php
-	
-		//Variable for flow of searching.
-		$SearchAgain = 0;
-		
-		//Starting the season.
-		
-		//Connection to database.
-		require('DatabaseConnect.php');
-		
-		if(!empty($_REQUEST['Search'])) 
-		{
-
-			$Searching = mysqli_real_escape_string($Connection,$_REQUEST['Search']);  
-
-			$TableSearch = " SELECT * 
-							 FROM  BookTable
-							 WHERE BookTitle 
-							 LIKE '%".$Searching."%' "; 
-			$Finding = mysqli_query($Connection,$TableSearch); 
-			
-			//Error checking.
-			if(!$Finding)
-			{ 
-				printf("Error: %s\n", mysqli_error($Connection));
-				exit();
-			}
-
-			while($Row = mysqli_fetch_array($Finding, MYSQL_BOTH))
-			{
-				echo '<br /> ISBN:       ' .$Row['ISBN'];  
-				echo '<br /> Book Title: ' .$Row['BookTitle']; 
-				echo '<br /> Author:     ' .$Row['Author'];
-				echo '<br /> Edition:    ' .$Row['Edition'];  
-				echo '<br /> Category:   ' .$Row['Category'];  
-				echo '<br /> Reserved:   ' .$Row['Reserved'];   
-				echo '<br /> <br />';
-			}
-			
-			$SearchAgain++;
-			
-			//Including the footer. Also the option to search again.
-			if($SearchAgain == 1)
-			{
-				echo "<div class='Form'><h3>Would you like to search again?</h3><br/>Click here to <a href='Search.php'>Search Again</a></div>";
-				goto SIncludeFooter; 
-				$SearchAgain = 0;
-			}
-
-		}
-
-	?>
-	
-	<!-- HTML Search Below This -->
+	<!-- Search Form Start -->
+	<br><br>
+	<!-- CSS to style the form. -->
 	<div class="Form2">
-	<h1 class="loginheader">Search For A Book</h1>
-		<form action="" method="post" name="search">
-			<input type="text" name="Search" placeholder="Search for a book..." required />
-			<br><br><br>
-			<div class="loginheader">
-				<select name="SearchOptions">
-					<option value="Author">Any</option>
-					<option value="Author">Author</option>
-					<option value="Title">Title</option>
-					<option value="Category">Category</option>
-				</select>
-			</div>
-			<input type="submit" name="submit" value="Search" />
+		<!-- CSS to style the header. -->
+		<h1 class="loginheader">Search For A Book</h1>
+		
+		<!-- Form Start. -->
+		<form action="SearchResults.php" method="GET">
+	 		Title of Book:<br><input type="text" name="TitleOfBook">
+	  		<br><br>
+	  		Author of Book:<br><input type="text" name="AuthorOfBook">
+			<br><br>
+			Category of Book:<br>
+		
+		<!-- PHP to go here -->
+		<?php
+		
+			//Connecting to the database.
+			require('DatabaseConnect.php');
+			
+			//Connecting to the Category Section in the Table from the Database.
+			$Query = $Connection->Query("SELECT CategoryID, CategoryDescription FROM CategoryTable");
+			
+			echo "<br>";
+			echo "<select name='CategoryOfBook'>";
+			
+			//Variable to comapre with the category number.
+			$CategoryIDVar = 0;
+			
+			//Name of the select button, displays too.
+			$SelectOptionName = "Any";
+			 
+			echo '<option value="'.$CategoryIDVar.'">'.$SelectOptionName.'</option>';
+			
+			//Getting the names of the category and putting them in the select.
+			while($Row = $Query->fetch_assoc()) 
+			{
+						  $CategoryIDVar = $Row['CategoryID'];
+						  $SelectOptionName = $Row['CategoryDescription']; 
+						  echo '<option value="'.$CategoryIDVar.'">'.$SelectOptionName.'</option>';
+			}
+
+			echo "</select><br><br>";
+		?>
+		
+			<input type="submit" value="Submit">
 		</form>
+	</div>
 					  
     <!--Start of footer-->
-	<br><br><br><br><br>
+	<br><br>
 	
-	<?php SIncludeFooter: ?>
 	<div class="clearfix"></div>
 	<div  class="footer">
 		<div class="container">
