@@ -34,7 +34,7 @@
 		<div class="container">  
 			<div class="main">
 				<h1>Registration</h1>
-				<p class="btn-primary">You have now logged out, click on the navigator to log back in or go back to main page.</p>
+				<p class="btn-primary">Sign up to this library website to reserve books, an account is always good to have.</p>
 			</div>
 		</div>
 	</div>

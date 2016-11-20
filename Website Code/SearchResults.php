@@ -80,8 +80,12 @@
 			//Gives an error to 
 			if($_SERVER['REQUEST_METHOD'] != 'GET' || empty($_GET)) 
 			{
-				echo "<br><br>";
+				echo "<br>";
+				echo "<div class=\"Form2\">";
+				echo "<h2>";
 				echo "You must type something in.";
+				echo "</h2>";
+				echo "</div>";
 				return false;
 			}
 			
@@ -185,7 +189,11 @@
 		//If nothing is found, give a meesage that nothing has been found.
 		if($Query->num_rows == 0) 
 		{
-			echo 'No books have been found.'; 
+			echo "<div class=\"Form2\">";
+			echo "<h2>";
+			echo 'No books have been found.';
+			echo "</h2>";
+			echo "</div>"; 
 		}
 		
 		//If books match with what the user wants, then display the results.
@@ -205,12 +213,12 @@
 			echo "<br>";
 		}
 		echo "</table>\n";
-
+		
 	?>
+	
 	
 	<!--Start of footer-->
 		<br><br>
-		
 		<div class="clearfix"></div>
 		<div  class="footer">
 			<div class="container">

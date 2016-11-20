@@ -70,7 +70,7 @@
 			$CategoryIDVar = 0;
 			
 			//Name of the select button, displays too.
-			$SelectOptionName = "Select";
+			$SelectOptionName = "Search";
 			 
 			echo '<option value="'.$CategoryIDVar.'">'.$SelectOptionName.'</option>';
 			
