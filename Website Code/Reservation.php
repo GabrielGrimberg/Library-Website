@@ -1,7 +1,7 @@
 <!--Web Development 2 Assingment-->
 <!--Author: Gabriel Grimberg.-->
 <!--Website: Library Website-->
-<!--Page: Logged Out-->
+<!--Page: Reservation-->
 
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,7 @@
 	<meta charset="utf-8">
 	    <!--Linking to CSS-->
 		<link type="text/css" rel="stylesheet" href="Main-Style.css"/>
-		<title>Logged Out</title>
+		<title>Reservation</title>
 	</head>
 	
 <body>
@@ -30,34 +30,29 @@
 		</div>
 	</div>
 	
-	
-	<div class="backgroundfix5">
+	<div class="backgroundfix4">
 		<div class="container">  
 			<div class="main">
-				<h1>Logged Out</h1>
-				<p class="btn-primary">You have now logged out, click on the navigator to log back in or go back to main page.</p>
+				<h1>Reserve a Book</h1>
+				<p class="btn-primary">The place where to reserve the book you want.</p>
 			</div>
 		</div>
 	</div>
-				
-	<!-- PHP to go here -->
-	<?php
 	
-		session_start();
-		unset($_SESSION['Username']);
-		session_destroy();
-	?>
-
-	<br><br>
-	<div class="supporting2">
-		<div class = "Form2"><h2>You Have Logged Out</h2></div>
-		<p>We miss you already! Made a mistake and need to log back in? Click below.</p>
-		<a href="Login.php">Log In</a>
+	<br>
+	
+	<div class="Form2">
+		<form action="Reserve.php" method="POST">
+		  ISBN Of The Book:<br>
+	 	 <input type="text" name="ISBN"><br>
+	  
+	 	 <input type="submit" value="Submit">
+		</form>
 	</div>
-	<br><br><br><br><br>
-
-    <!--Start of footer-->
-	<?php includeFooter: ?>
+	
+	<br><br>
+					
+    <!-- Start of footer -->
 	<div class="clearfix"></div>
 	<div  class="footer">
 		<div class="container">

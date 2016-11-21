@@ -22,9 +22,9 @@
 			<ul class="nav">
 				<li><a href="Main-Page.html">Welcome</a></li>
 				<li><a href="Search.php">Search</a></li>
+				<li><a href="Reservation.php">Reserve</a></li>
 				<li><a href="Register.php">Register</a></li>
 				<li><a href="Login.php">My Account</a></li>
-				<li><a href="LoggedOut.php">Log Out</a></li>
 			</ul>
 			</div>
 		</div>
@@ -206,7 +206,7 @@
 			echo '<br /> Book Title: ' .$Row['BookTitle']; 
 			echo '<br /> Author:     ' .$Row['Author'];
 			echo '<br /> Edition:    ' .$Row['Edition'];    
-			echo '<br /> Reserved:   ' .$Row['Reserved'];   
+			echo '<br /> Reserved:   ' .$Row['Reserved'];  
 			echo '<br /> <br />';
 			echo("</tr>\n");
 			echo "</div>";
