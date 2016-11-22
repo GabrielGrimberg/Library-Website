@@ -81,8 +81,7 @@
 		//Check if book exists.
 		$Query = $Connection->Query(sprintf("SELECT * 
 										FROM BookTable 
-										WHERE ISBN = '%s' 
-										LIMIT 1", 
+										WHERE ISBN = '%s'", 
 										$Connection->escape_string($_POST['ISBN'])
 									 )
 							 );
@@ -91,8 +90,7 @@
 		$Query = $Connection->Query(sprintf("SELECT * 
 										FROM BookTable
 										WHERE ISBN = '%s'
-										AND Reserved = 'N'
-										LIMIT 1", 
+										AND Reserved = 'N'",
 										$Connection->escape_string($_POST['ISBN'])
 									 )
 							 );
@@ -128,15 +126,14 @@
 		//Record the reservation made.
 		$Query = $Connection->query(sprintf("SELECT ISBN 
 										From BookTable 
-										WHERE ISBN = '%s'
-										LIMIT 1",
+										WHERE ISBN = '%s'",
 										$Connection->escape_string($_POST['ISBN'])
 									 )
 							 );
 							 
 		$Result = $Query->fetch_assoc();
 		
-		//Insert a reservation.
+		//Record the reservation made.
 		$Query = $Connection->Query(sprintf("INSERT INTO BookReserve(ISBN, Username, ReservedDate) 
 										VALUES ('%s', '%s', '%s')", $Result['ISBN'], $_SESSION['Username'],date('Y-m-d H:i:s')
 									 )

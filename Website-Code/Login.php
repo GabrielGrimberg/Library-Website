@@ -89,6 +89,43 @@
 			echo "<div class='Form'><h3><a href='Main-Page.html'>Go To Main Page</a> <br></h3></div>";
 			echo "<div class='Form'><h3><a href='LoggedOut.php'>Not you? Logout.</a> <br></h3></div>";
 			echo "<br><br>";
+			
+			$Query = $Connection->Query(sprintf("SELECT BookTable.ISBN, BookTable.BookTitle 
+											FROM BookReserve 
+											INNER JOIN BookTable 
+											ON BookReserve.ISBN=BookTable.ISBN 
+											WHERE BookReserve.Username = '%s'", $_SESSION['Username']));
+			
+			if ($Query->num_rows == 0) 
+			{
+				echo "<div class='Form2'><h2>No books have been reserved.</h2></div>"; 
+			}
+			
+			
+			//If books match with what the user wants, then display the results.
+			while($Row = mysqli_fetch_array($Query, MYSQL_BOTH))
+			{
+				echo "<table border=\"2\"align=\"center\"width=\"600\">";
+				echo("</td><td>");
+				echo "<div class=\"Form2\">";
+				echo '<br /> ISBN:       ' .$Row['ISBN'];  
+				echo '<br /> Book Title: ' .$Row['BookTitle'];  
+				echo '<br /> <br />';
+				echo("</tr>\n");
+				echo "</div>";
+				echo "<br>";
+			}
+			echo "</table>\n";
+			
+			echo "</select><br><br>";
+			
+			echo "<div class=\"Form2\">";
+			echo "<form action=\"Unreserve.php\" method=\"POST\">";
+			echo "ISBN Of The Book:<br>";
+			echo "<input type=\"text\" name=\"ISBN\"><br>";
+			echo "<input type=\"submit\" value=\"Submit\">";
+			echo "</form>";
+			echo "</div>";
 		 
 		}
 		else
