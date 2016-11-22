@@ -1,0 +1,410 @@
+/* Main CSS Path for Every Page. */
+
+html, body 
+{
+	margin: 0;
+	padding: 0;
+}
+
+
+/* Perfecting the size of the 3 buttons down */
+.container 
+{
+	max-width: 940px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+
+/* Color of when mouse is on navigator */
+#menu a:hover 
+{
+	color: rgb(160, 200, 255);
+}
+
+/* Background image for menu, making sure no repeats */
+.backgroundfix 
+{
+	background: url(http://localhost/Website-Code/Pictures/MainPagePic.jpg) no-repeat center center;
+	background-size: cover;
+	height: 500px;
+}
+
+/* Navigator Background */
+.header 
+{
+	background-color: #333;
+}
+
+/* Navigator Position */
+.nav 
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 20px 0;
+	text-align: center;
+}
+
+/* Navigator Words */
+.nav li 
+{
+	color: #ffffff;
+	display: inline;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 1000;
+	font-size: 12px;
+	margin-right: 50px;
+	text-transform: uppercase;
+
+}
+
+/* Removing the link look */
+.nav li a
+{
+	text-decoration: none;
+	color: white;
+}
+
+/* Position of Top Page */
+.main 
+{
+	position: relative;
+	top: 180px;
+	text-align: center;
+}
+
+/* Title of Page */
+.main h1 
+{
+	color: #ffffff;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
+	font-size: 70px;
+	margin-top: 0;
+	text-align: center;
+	margin-bottom: 80px;
+	text-transform: uppercase;
+}
+
+/* Description after title */
+.btn-primary 
+{
+	background-color: rgba(100, 100, 100, 0.5);
+	color: #fff;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
+	font-size: 18px;
+	letter-spacing: 1.3px;
+	padding: 16px 40px;
+	text-decoration: none;
+	border-radius: 25px;
+}
+
+/* The three bottons */
+.btn-default 
+{
+	border: 1px solid #333;
+	color: #333;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
+	font-size: 10px;
+	letter-spacing: 1.3px;
+	padding: 10px 20px;
+	text-decoration: none;
+	text-transform: uppercase;  
+	display: inline-block;
+	margin-bottom: 20px;
+	border-radius: 5px;      
+}
+
+/* Positioning for lower page */
+.supporting 
+{
+	padding-top: 80px;
+	padding-bottom: 100px;
+}
+
+/* Column position */
+.supporting .col 
+{
+	float: left;
+	width: 33%;
+	font-family: 'Raleway', sans-serif;
+	text-align: center;
+}
+
+/* Resizing the image */
+.supporting img 
+{
+	height: 32px;
+}
+
+/* Text title for lower page */
+.supporting h2 
+{
+	font-weight: 600;
+	font-size: 23px;
+	text-transform: uppercase;
+}
+
+/* Paragraph after text title */
+.supporting p 
+{
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+	padding: 0 50px;
+	margin-bottom: 40px;
+}
+
+/* Lining */
+.clearfix 
+{
+	clear: both;
+}
+
+/* Footer background */
+/* Making the footer */
+.footer 
+{
+	background-color: #333;
+	color: #ffffff;
+	padding: 15px 0;
+}
+
+/* Description in footer */
+.footer p 
+{
+	font-family: 'Raleway', sans-serif;
+	font-size: 10px;
+	text-align: left;
+} /* End of Main CSS Path */
+
+/* Start of Register Section, seperate from the Style CSS to remove bugs. */
+
+.backgroundfix3
+{
+	background: url(http://localhost/Website-Code/Pictures/RegisterPic.jpg) no-repeat center center;
+	background-size: cover;
+	height: 500px;
+}
+
+form 
+{
+	/* Just to center the form on the page */
+	margin: 0 auto;
+	width: 400px;
+	
+	/* To see the outline of the form */
+	padding: 1em;
+	border-radius: 1em;
+}
+
+form div + div 
+{
+	margin-top: 1em;
+}
+
+label 
+{
+	/* To make sure that all labels have the same size and are properly aligned */
+	display: inline-block;
+	width: 90px;
+	text-align: right;
+}
+
+input, textarea 
+{
+	/* To make sure that all text fields have the same font settings
+	   By default, textareas have a monospace font */
+	font: 1em sans-serif;
+
+	/* To give the same size to all text field */
+	width: 300px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	/* To harmonize the look & feel of text field border */
+	border: 1px solid #999;
+}
+
+input:focus, textarea:focus 
+{
+	/* To give a little highlight on active elements */
+	border-color: #000;
+}
+
+textarea 
+{
+	/* To properly align multiline text fields with their labels */
+	vertical-align: top;
+
+	/* To give enough room to type some text */
+	height: 5em;
+
+	/* To allow users to resize any textarea vertically
+	   It does not work on every browsers */
+	resize: vertical;
+}
+
+.button 
+{
+	/* To position the buttons to the same position of the text fields */
+	padding-left: 90px; /* same size as the label elements */
+}
+button 
+{
+	/* This extra margin represent roughly the same space as the space
+	   between the labels and their text fields */
+	margin-left: .5em;
+}
+
+/* PHP for Register */
+.clearfix:before, .clearfix:after 
+{ 
+	content: ""; 
+	display: table; 
+}
+
+.clearfix:after 
+{ 
+	clear: both; 
+}
+
+a 
+{
+	color: #0067ab; 
+	text-decoration: none;
+}
+a:hover 
+{
+	text-decoration: underline;
+}
+
+/* For all the form options in pages */
+.Form
+{
+	color: #000000;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 50;
+	font-size: 10px;
+	text-align: center;
+	margin-bottom: 25px; /* Margin from footer */
+	text-transform: uppercase;
+}
+
+.Form2
+{
+	color: #000000;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 50;
+	font-size: 10px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+input[type='text'], input[type='password'] 
+{
+	text-align: center;
+	width: 200px; 
+	border-radius: 
+	2px;border: 
+	1px solid #CCC; 
+	padding: 10px; 
+	color: #333; 
+	font-size: 14px; 
+	margin-top: 15px;
+}
+
+
+input[type='Submit']
+{
+	text-align: center;
+	padding: 10px 15px 8px; 
+	text-align: center;
+	color: #fff; 
+	background-color: #000000; /* Black */
+	font-size: 16px; 
+	border-radius: 10px; 
+	margin-top: 20px; 
+	cursor:pointer;
+}
+
+input[type='Submit']:hover 
+{
+	background-color: #A9A9A9; /* Light Grey */
+}
+
+/* PHP for Login */
+.backgroundfix4
+{
+	background: url(http://localhost/Website-Code/Pictures/LoginPic.png) no-repeat center center;
+	background-size: cover;
+	height: 500px;
+}
+
+.loginheader
+{
+	font-family: 'Raleway', sans-serif;
+	text-align: center;
+
+}
+
+/* PHP for Logged Out */
+.backgroundfix5
+{
+	background: url(http://localhost/Website-Code/Pictures/LogoutPic.jpg) no-repeat center center;
+	background-size: cover;
+	height: 500px;
+}
+
+/* For Reserve Page */
+.backgroundfixReserve
+{
+	background: url(http://localhost/Website-Code/Pictures/ReservePic.jpg) no-repeat center center;
+	background-size: cover;
+	height: 500px;
+}
+
+/* PHP/HTML for Search Page */
+.supporting2 img
+{
+	display: block;
+	margin: 0 auto;
+}
+
+.supporting2 p
+{
+	text-align: center;
+}
+
+.supporting2 h2
+{
+	text-align: center;
+}
+
+.supporting2 a
+{
+	margin: 0 auto; 
+	display: block;
+	text-align: center;
+	text-transform: uppercase;
+  
+}
+
+.backgroundfix6
+{
+	background: url(http://localhost/Website-Code/Pictures/SearchPic.jpg) no-repeat center center;
+	background-size: cover;
+	height: 500px;
+}
+
+select 
+{
+	background-color: #A9A9A9;
+	border: 10px solid #A9A9A9;
+	font-size: 15px;
+	overflow: hidden;
+}
+
+/* Reservation Page */
