@@ -33,8 +33,8 @@
 	<div class="backgroundfix4">
 		<div class="container">  
 			<div class="main">
-				<h1>Log In</h1>
-				<p class="btn-primary">Log in to access your account, view books and search for books.</p>
+				<h1>Unreserved</h1>
+				<p class="btn-primary">Welcome to your profile page, here you can check the books you have reserved.</p>
 			</div>
 		</div>
 	</div>
@@ -43,30 +43,28 @@
 
 		//Check if logged in.
 		session_start();
-			
-		if(!isset($_SESSION['Username'])) 
-		{
-			echo "Please log in.";
-		}
-		
-		if(!isset($_POST['ISBN'])) 
-		{
-			echo "Please enter an ISBN";
-		}
-		
+									
 		require('DatabaseConnect.php');
-		
+
 		$Query = $Connection->Query(sprintf("UPDATE BookTable 
 											  SET Reserved = 'N' 
 											  WHERE ISBN = '%s'", 
-										      $Connection->escape_string($_POST['ISBN'])));
-
+											  $Connection->escape_string($_POST['ISBN'])));
+												
 		$Query = $Connection->Query(sprintf("DELETE FROM BookReserve 
 											  WHERE ISBN = '%s'", 
 											  $Connection->escape_string($_POST['ISBN'])));
+											
+		echo "<br>";
+		echo "<div class='Form2'><h2>Book has been unreserved if code was correct.</h2></div>";
+		echo "<div class='Form2'><h2>Check your account if the book has been unreserved.</h2></div>";
+		echo "<br>";
+		
+		echo "<div class='Form'><h3><a href='Login.php'>View your account</a> <br></h3></div>";
+		echo "<div class='Form'><h3><a href='LoggedOut.php'>Want to log out?</a> <br></h3></div>";
+
 	?>
 	
-	<div class='Form2'><h2>Book has been unreserved.</h2></div>			  
     <!--Start of footer-->
 	<br><br>
 	

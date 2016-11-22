@@ -122,11 +122,10 @@
 			echo "<div class=\"Form2\">";
 			echo "<form action=\"Unreserve.php\" method=\"POST\">";
 			echo "ISBN Of The Book:<br>";
-			echo "<input type=\"text\" name=\"ISBN\"><br>";
+			echo "<input type=\"text\" name=\"ISBN\" placeholder=\"434-343-23\" required ><br>";
 			echo "<input type=\"submit\" value=\"Submit\">";
 			echo "</form>";
 			echo "</div>";
-		 
 		}
 		else
 		{		

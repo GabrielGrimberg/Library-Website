@@ -44,7 +44,7 @@
 	<div class="Form2">
 		<form action="Reserve.php" method="POST">
 		  ISBN Of The Book:<br>
-	 	 <input type="text" name="ISBN"><br>
+	 	 <input type="text" name="ISBN" required><br>
 	  
 	 	 <input type="submit" value="Submit">
 		</form>

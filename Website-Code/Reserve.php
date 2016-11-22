@@ -47,7 +47,9 @@
 		{
 			echo "<br>";
 			echo "<div class='Form2'><h2>You must enter an ISBN code into the form.</h2></div>";
-			echo "<br><br><br><br><br><br>";
+			echo "<br>";
+			echo "<div class='Form'><h3><a href='Reservation.php'>Try again</a> <br></h3></div>";
+			echo "<div class='Form'><h3><a href='LoggedOut.php'>Want to log out?</a> <br></h3></div>";
 			echo "<div class=\"clearfix\"></div>";
 			echo "<div  class=\"footer\">";
 			echo "<div class=\"container\">";
@@ -56,16 +58,18 @@
 			echo "</div>";
 			exit;
 		}
-			
+		
 			
 		//Check if session is good.
 		session_start();
-			
+		
+
 		if(!isset($_SESSION['Username'])) 
 		{
 			echo "<br>";
 			echo "<div class='Form2'><h2>You're not logged in, please log in.</h2></div>";
-			echo "<br><br><br><br><br><br>";
+			echo "<br>";
+			echo "<div class='Form'><h3><a href='Login.php'>Log into your account</a> <br></h3></div>";
 			echo "<div class=\"clearfix\"></div>";
 			echo "<div  class=\"footer\">";
 	        echo "<div class=\"container\">";
@@ -99,7 +103,11 @@
 		{
 			echo "<br>";
 			echo "<div class='Form2'><h2>The book is already reserved by a member, try another book.</h2></div>";
-			echo "<br><br><br><br><br><br>";
+			echo "<br>";
+			
+			echo "<div class='Form'><h3><a href='Reservation.php'>Try again?</a> <br></h3></div>";
+			echo "<div class='Form'><h3><a href='LoggedOut.php'>Want to log out?</a> <br></h3></div>";
+			
 			echo "<div class=\"clearfix\"></div>";
 			echo "<div  class=\"footer\">";
 			echo "<div class=\"container\">";
@@ -120,7 +128,10 @@
 		{
 			echo "<br>";
 			echo "<div class='Form2'><h2>The book you have selected was reserved successfully.</h2></div>";
-			echo "<br><br><br><br><br><br>";
+			echo "<br><br>";
+			
+			echo "<div class='Form'><h3><a href='Login.php'>View your account</a> <br></h3></div>";
+			echo "<div class='Form'><h3><a href='LoggedOut.php'>Want to log out?</a> <br></h3></div>";
 		} 
 		
 		//Record the reservation made.
