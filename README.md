@@ -5,19 +5,19 @@ The aim of this assignment is to develop a book reservation web site using PHP a
 ## Screenshots Of The Website
 
 ### Main Page
-![Sketch](Images/MainPage.png)
+![Sketch](Screenshot-Images/MainPage.png)
 
 ### Search Page
-![Sketch](Images/SearchPage.png)
+![Sketch](Screenshot-Images/SearchPage.png)
 
 ### Reservation Page
-![Sketch](Images/ReservePage.png)
+![Sketch](Screenshot-Images/ReservePage.png)
 
 ### Login Page
-![Sketch](Images/LoginPage.png)
+![Sketch](Screenshot-Images/LoginPage.png)
 
 ### Registration Page
-![Sketch](Images/RegisterPage.png)
+![Sketch](Screenshot-Images/RegisterPage.png)
 
 ### Logout Page
-![Sketch](Images/LogoutPage.png)
+![Sketch](Screenshot-Images/LogoutPage.png)
