@@ -103,6 +103,7 @@
 		{
 			echo "<br>";
 			echo "<div class='Form2'><h2>The book is already reserved by a member, try another book.</h2></div>";
+			echo "<div class='Form2'><h2>Or the ISBN code you have entered didn't match.</h2></div>";
 			echo "<br>";
 			
 			echo "<div class='Form'><h3><a href='Reservation.php'>Try again?</a> <br></h3></div>";

@@ -42,6 +42,7 @@
 	<br>
 	
 	<div class="Form2">
+	<h1 class="loginheader">Reserve A Book</h1>
 		<form action="Reserve.php" method="POST">
 		  ISBN Of The Book:<br>
 	 	 <input type="text" name="ISBN" required><br>

@@ -50,11 +50,11 @@
 
 	<br><br>
 	<div class="supporting2">
-		<div class = "Form2"><h2>You Have Logged Out</h2></div>
-		<p>We miss you already! Made a mistake and need to log back in? Click below.</p>
-		<a href="Login.php">Log In</a>
+		<div class = "Form2"><h1>You Have Logged Out</h1></div><br>
+		<div class='Form2'><h2>We miss you already! Made a mistake and need to log back in? Click below.</h2></div>
+		<div class='Form'><h3><a href='Login.php'>Login</a> <br></h3></div>;
 	</div>
-	<br><br><br><br><br>
+	<br><br>
 
     <!--Start of footer-->
 	<?php includeFooter: ?>

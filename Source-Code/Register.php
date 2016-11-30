@@ -54,7 +54,10 @@
 		{
 			echo "<br>";
 			echo "<div class='Form2'><h2>You're already logged in, log out if you wish to make a new account.</h2></div>";
-			echo "<br><br><br><br><br><br>";
+			echo "<br>";
+			echo "<div class='Form'><h3><a href='Login.php'>View your account</a> <br></h3></div>";
+			echo "<div class='Form'><h3><a href='LoggedOut.php'>Want to log out?</a> <br></h3></div>";
+			echo "<br><br>";
 			
 			//Not recommened but solves the missing footer problem.
 			goto includeFooter;
