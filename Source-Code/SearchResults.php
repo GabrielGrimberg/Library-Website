@@ -41,6 +41,7 @@
 	
 	<?php
 		
+		//Getting the data.
 		function FindResults() 
 		{
 			//Variable to store category and compare.
@@ -79,6 +80,24 @@
 				$JoiningAdder = true;
 			}
 			
+			//Making sure only 1 option is used at a time.
+			if(isset($_GET["AuthorOfBook"]) && isset($_GET["TitleOfBook"]) && isset($_GET["CategoryOfBook"]))
+			{
+				echo "<br>";
+				echo "<div class='Form2'><h2>Only one option at a time please.</h2></div>";
+				echo "<div class='Form2'><h2>Either fill in the author's name, title of the book or select category.</h2></div>";
+				echo "<br>";
+				echo "<div class='Form'><h3><a href='Search.php'>Try again</a> <br></h3></div>";
+				echo "<div class=\"clearfix\"></div>";
+				echo "<div  class=\"footer\">";
+				echo "<div class=\"container\">";
+				echo "<p>Copyright. 2016 All rights reserved.</p>";
+				echo "</div>";
+				echo "</div>";
+				exit;
+			}
+			
+			//Returning the information found to query.
 			return sprintf("SELECT BookTable.*, CategoryDescription 
 							FROM BookTable 
 							INNER JOIN CategoryTable 
@@ -87,7 +106,7 @@
 							LIMIT 5 OFFSET %d", $SearchCompareVar, $_GET['PageNumber'] * 5);
 		}
 		
-		
+		//Passing on the information for the next page.
 		function varTransfer() 
 		{
 			$StoreVars = "";
@@ -148,7 +167,7 @@
 		if($_SERVER['REQUEST_METHOD'] != 'GET' || empty($_GET)) 
 		{
 			echo "<br>";
-			echo "<div class='Form2'><h2>You must enter an ISBN code into the form.</h2></div>";
+			echo "<div class='Form2'><h2>You must enter something in.</h2></div>";
 			echo "<br>";
 			echo "<div class='Form'><h3><a href='Search.php'>Try again</a> <br></h3></div>";
 			echo "<div class=\"clearfix\"></div>";
@@ -160,7 +179,7 @@
 			exit;
 		}
 		
-		/* 5 results per page, still in works.*/
+		//Creating the page number variable.
 		if(isset($_GET["PageNumber"])) 
 		{ 
 			$_GET['PageNumber']  = $_GET["PageNumber"]; 
@@ -174,7 +193,6 @@
 		{
 			$_GET['PageNumber'] = 0;
 		}
-		
 		
 		$NumberToAdd = 1;
 		
@@ -208,7 +226,7 @@
 			echo "</div>";
 			exit; 
 		}
-		
+	
 		//If books match with what the user wants, then display the results.
 		while($Row = mysqli_fetch_array($Query, MYSQL_BOTH))
 		{
@@ -231,9 +249,11 @@
 		
 		echo "<br><br>";
 		
+		//To show the next page with the next results.
 		echo sprintf("<a href=\"$PathToFindPage=%d&%s\"><div class='Form2'><h3>Next Page</a></div>", 
 		$_GET["PageNumber"] + $NumberToAdd, varTransfer());
 		
+		//To show the next page with the next results.
 		echo sprintf("<a href=\"$PathToFindPage=%d&%s\"><div class='Form2'><h3>Previous Page</a></div>", 
 		$_GET["PageNumber"] - $NumberToAdd, varTransfer());
 		

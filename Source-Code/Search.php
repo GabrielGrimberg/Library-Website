@@ -40,11 +40,12 @@
 	</div>
 				
 	<!-- Search Form Start -->
-	<br><br>
+	<br>
 	<!-- CSS to style the form. -->
 	<div class="Form2">
 		<!-- CSS to style the header. -->
 		<h1 class="loginheader">Search For A Book</h1>
+		<p>Fill in one option at a time please.<p>
 		
 		<!-- Form Start. -->
 		<form action="SearchResults.php" method="GET">
