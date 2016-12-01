@@ -40,81 +40,6 @@
 	</div>
 	
 	<?php
-	
-		//Unset the Variables so they can be used again.
-		//This is needed to prevent errors and complications.
-		function VariableClean() 
-		{
-			//Clean the AuthorOfBook variables.
-			if(isset($_GET["AuthorOfBook"])) 
-			{
-				if (strlen($_GET["AuthorOfBook"]) == 0 ) 
-				{
-					unset($_GET["AuthorOfBook"]);
-				}
-			}
-			
-			//Clean the CategoryOfBook variables.
-			if(isset($_GET["CategoryOfBook"])) 
-			{
-				if ($_GET["CategoryOfBook"] == 0 ) 
-				{
-					unset($_GET["CategoryOfBook"]);
-				}
-			}
-			
-			//Clean the TitleOfBook variables.
-			if(isset($_GET["TitleOfBook"])) 
-			{
-				if (strlen($_GET["TitleOfBook"]) == 0 ) 
-				{
-					unset($_GET["TitleOfBook"]);
-				}
-			}
-		}
-		
-		//Validate Function to prevent bugs and errors.
-		function ErrorValidate() 
-		{
-			//If the user didn't type anything but presses search.
-			//Gives an error to 
-			if($_SERVER['REQUEST_METHOD'] != 'GET' || empty($_GET)) 
-			{
-				echo "<br>";
-				echo "<div class=\"Form2\">";
-				echo "<h2>";
-				echo "You must type something in.";
-				echo "</h2>";
-				echo "</div>";
-				return false;
-			}
-			
-			/* 5 results per page, still in works.*/
-			if(isset($_GET["PageNumber"])) 
-			{ 
-				$_GET['PageNumber']  = $_GET["PageNumber"]; 
-			} 
-			else 
-			{ 
-				$_GET['PageNumber'] = 0;
-			}
-			
-			if($_GET['PageNumber'] < 0) 
-			{
-				$_GET['PageNumber'] = 0;
-			}
-			
-			//If either CategoryOfBook, AuthorOfBook or TitleOfBook is set then we don't have anything to search for.
-			if(!isset($_GET["AuthorOfBook"]) && !isset($_GET["CategoryOfBook"]) && !isset($_GET["TitleOfBook"])) 
-			{
-				echo 'Could not find anything.';
-				return false;
-			}
-			
-			//If no errors happen then we move on to the displaying the search results.
-			return true;
-		}
-		
 		
 		function FindResults() 
 		{
@@ -188,14 +113,68 @@
 			return $StoreVars;
 		}
 		
-		//Calling the function to clean the variables.
-		VariableClean();
+		/* //Unset the Variables so they can be used again.
+		//This is needed to prevent errors and complications */		
+		//Clean the AuthorOfBook variables.
+		if(isset($_GET["AuthorOfBook"])) 
+		{
+			if (strlen($_GET["AuthorOfBook"]) == 0 ) 
+			{
+				unset($_GET["AuthorOfBook"]);
+			}
+		}
+		
+		//Clean the CategoryOfBook variables.
+		if(isset($_GET["CategoryOfBook"])) 
+		{
+			if ($_GET["CategoryOfBook"] == 0 ) 
+			{
+				unset($_GET["CategoryOfBook"]);
+			}
+		}
+		
+		//Clean the TitleOfBook variables.
+		if(isset($_GET["TitleOfBook"])) 
+		{
+			if (strlen($_GET["TitleOfBook"]) == 0 ) 
+			{
+				unset($_GET["TitleOfBook"]);
+			}
+		}
 		
 		//Need to check for any errors.
-		if(!ErrorValidate()) 
+		//If the user didn't type anything but presses search.
+		//Gives an error to 
+		if($_SERVER['REQUEST_METHOD'] != 'GET' || empty($_GET)) 
 		{
-			return;
+			echo "<br>";
+			echo "<div class='Form2'><h2>You must enter an ISBN code into the form.</h2></div>";
+			echo "<br>";
+			echo "<div class='Form'><h3><a href='Search.php'>Try again</a> <br></h3></div>";
+			echo "<div class=\"clearfix\"></div>";
+			echo "<div  class=\"footer\">";
+			echo "<div class=\"container\">";
+			echo "<p>Copyright. 2016 All rights reserved.</p>";
+			echo "</div>";
+			echo "</div>";
+			exit;
 		}
+		
+		/* 5 results per page, still in works.*/
+		if(isset($_GET["PageNumber"])) 
+		{ 
+			$_GET['PageNumber']  = $_GET["PageNumber"]; 
+		} 
+		else 
+		{ 
+			$_GET['PageNumber'] = 0;
+		}
+		
+		if($_GET['PageNumber'] < 0) 
+		{
+			$_GET['PageNumber'] = 0;
+		}
+		
 		
 		$NumberToAdd = 1;
 		
@@ -217,12 +196,17 @@
 		//If nothing is found, give a meesage that nothing has been found.
 		if($Query->num_rows == 0) 
 		{
-			echo "<div class=\"Form2\">";
-			echo "<h2>";
-			echo 'No books have been found.';
-			echo "<br><br>";
-			echo "</h2>";
-			echo "</div>"; 
+			echo "<br>";
+			echo "<div class='Form2'><h2>No books found.</h2></div>";
+			echo "<br>";
+			echo "<div class='Form'><h3><a href='Search.php'>Try again</a> <br></h3></div>";
+			echo "<div class=\"clearfix\"></div>";
+			echo "<div  class=\"footer\">";
+			echo "<div class=\"container\">";
+			echo "<p>Copyright. 2016 All rights reserved.</p>";
+			echo "</div>";
+			echo "</div>";
+			exit; 
 		}
 		
 		//If books match with what the user wants, then display the results.
