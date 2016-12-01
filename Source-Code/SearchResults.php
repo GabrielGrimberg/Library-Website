@@ -90,24 +90,24 @@
 			}
 			
 			/* 5 results per page, still in works.*/
-			if(isset($_GET["page"])) 
+			if(isset($_GET["PageNumber"])) 
 			{ 
-				$_GET['page']  = $_GET["page"]; 
+				$_GET['PageNumber']  = $_GET["PageNumber"]; 
 			} 
 			else 
 			{ 
-				$_GET['page'] = 0;
+				$_GET['PageNumber'] = 0;
 			}
 			
-			if($_GET['page'] < 0) 
+			if($_GET['PageNumber'] < 0) 
 			{
-				$_GET['page'] = 0;
+				$_GET['PageNumber'] = 0;
 			}
 			
 			//If either CategoryOfBook, AuthorOfBook or TitleOfBook is set then we don't have anything to search for.
 			if(!isset($_GET["AuthorOfBook"]) && !isset($_GET["CategoryOfBook"]) && !isset($_GET["TitleOfBook"])) 
 			{
-				echo 'No search criteria.';
+				echo 'Could not find anything.';
 				return false;
 			}
 			
@@ -159,7 +159,33 @@
 							INNER JOIN CategoryTable 
 							ON CategoryID=Category 
 							WHERE %s 
-							LIMIT 5 OFFSET %d", $SearchCompareVar, $_GET['page'] * 5);
+							LIMIT 5 OFFSET %d", $SearchCompareVar, $_GET['PageNumber'] * 5);
+		}
+		
+		
+		function varTransfer() 
+		{
+			$StoreVars = "";
+			
+			$StoreVars .= "TitleOfBook=";
+			if (isset($_GET["TitleOfBook"]))
+			{
+				$StoreVars .= $_GET["TitleOfBook"];
+			}
+			
+			$StoreVars .= "&CategoryOfBook=";
+			if (isset($_GET["CategoryOfBook"]))
+			{
+				$StoreVars .= $_GET["CategoryOfBook"];
+			}
+			
+			$StoreVars .= "&AuthorOfBook=";
+			if (isset($_GET["AuthorOfBook"]))
+			{
+				$StoreVars .= $_GET["AuthorOfBook"];
+			}
+			
+			return $StoreVars;
 		}
 		
 		//Calling the function to clean the variables.
@@ -171,10 +197,12 @@
 			return;
 		}
 		
+		$NumberToAdd = 1;
+		
 		//Displayign the page of results the user is on.
 		echo "<div class=\"Form2\">";
 		echo "<h2>";
-		echo "Page " . ($_GET['page']+1) . "<br><br><br>";
+		echo "Page " . ($_GET['PageNumber']+  $NumberToAdd ) . "<br>";
 		echo "</h2>";
 		echo "</div>";
 		
@@ -192,6 +220,7 @@
 			echo "<div class=\"Form2\">";
 			echo "<h2>";
 			echo 'No books have been found.';
+			echo "<br><br>";
 			echo "</h2>";
 			echo "</div>"; 
 		}
@@ -214,8 +243,17 @@
 		}
 		echo "</table>\n";
 		
+		$PathToFindPage = "/Source-Code/SearchResults.php?PageNumber";
+		
+		echo "<br><br>";
+		
+		echo sprintf("<a href=\"$PathToFindPage=%d&%s\"><div class='Form2'><h3>Next Page</a></div>", 
+		$_GET["PageNumber"] + $NumberToAdd, varTransfer());
+		
+		echo sprintf("<a href=\"$PathToFindPage=%d&%s\"><div class='Form2'><h3>Previous Page</a></div>", 
+		$_GET["PageNumber"] - $NumberToAdd, varTransfer());
+		
 	?>
-	
 	
 	<!--Start of footer-->
 		<br><br>

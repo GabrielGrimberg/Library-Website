@@ -25,7 +25,7 @@ html, body
 /* Background image for menu, making sure no repeats */
 .backgroundfix 
 {
-	background: url(http://localhost/Website-Code/Pictures/MainPagePic.jpg) no-repeat center center;
+	background: url(http://localhost/Source-Code/Pictures/MainPagePic.jpg) no-repeat center center;
 	background-size: cover;
 	height: 500px;
 }
@@ -184,7 +184,7 @@ html, body
 
 .backgroundfix3
 {
-	background: url(http://localhost/Website-Code/Pictures/RegisterPic.jpg) no-repeat center center;
+	background: url(http://localhost/Source-Code/Pictures/RegisterPic.jpg) no-repeat center center;
 	background-size: cover;
 	height: 500px;
 }
@@ -338,7 +338,7 @@ input[type='Submit']:hover
 /* PHP for Login */
 .backgroundfix4
 {
-	background: url(http://localhost/Website-Code/Pictures/LoginPic.png) no-repeat center center;
+	background: url(http://localhost/Source-Code/Pictures/LoginPic.png) no-repeat center center;
 	background-size: cover;
 	height: 500px;
 }
@@ -353,7 +353,7 @@ input[type='Submit']:hover
 /* PHP for Logged Out */
 .backgroundfix5
 {
-	background: url(http://localhost/Website-Code/Pictures/LogoutPic.jpg) no-repeat center center;
+	background: url(http://localhost/Source-Code/Pictures/LogoutPic.jpg) no-repeat center center;
 	background-size: cover;
 	height: 500px;
 }
@@ -361,7 +361,7 @@ input[type='Submit']:hover
 /* For Reserve Page */
 .backgroundfixReserve
 {
-	background: url(http://localhost/Website-Code/Pictures/ReservePic.jpg) no-repeat center center;
+	background: url(http://localhost/Source-Code/Pictures/ReservePic.jpg) no-repeat center center;
 	background-size: cover;
 	height: 500px;
 }
@@ -394,7 +394,7 @@ input[type='Submit']:hover
 
 .backgroundfix6
 {
-	background: url(http://localhost/Website-Code/Pictures/SearchPic.jpg) no-repeat center center;
+	background: url(http://localhost/Source-Code/Pictures/SearchPic.jpg) no-repeat center center;
 	background-size: cover;
 	height: 500px;
 }
