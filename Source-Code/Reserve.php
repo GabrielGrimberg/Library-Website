@@ -136,7 +136,7 @@
 		} 
 		
 		//Record the reservation made.
-		$Query = $Connection->query(sprintf("SELECT ISBN 
+		$Query = $Connection->Query(sprintf("SELECT ISBN 
 										From BookTable 
 										WHERE ISBN = '%s'",
 										$Connection->escape_string($_POST['ISBN'])
